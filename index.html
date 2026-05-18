@@ -1,1347 +1,1410 @@
 <!doctype html>
 <html lang="da">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vikarstyrken - Book professionelle vikarer til events, service og køkken</title>
-  <meta name="description" content="Vikarstyrken leverer erfarent personale til events, service og køkken i Storkøbenhavn og på Sjælland. Hurtig, tryg og gennemsigtig timepris.">
-  <style>
-    :root {
-      --bg-navy: #0A1628;
-      --bg-content: #F8FAFC;
-      --surface: #FFFFFF;
-      --fg: #0A1628;
-      --fg-light: #FFFFFF;
-      --muted: #64748B;
-      --border: #E2E8F0;
-      --accent: #2563EB;
-      --accent-hover: #1D4ED8;
-      --accent-light: #DBEAFE;
-      --warm-accent: #F59E0B;
-      --success: #10B981;
-      
-      --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      
-      --spacing-xs: 8px;
-      --spacing-sm: 16px;
-      --spacing-md: 24px;
-      --spacing-lg: 32px;
-      --spacing-xl: 48px;
-      --spacing-2xl: 64px;
-      --spacing-3xl: 80px;
-      
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--fg);
-      background-color: var(--bg-content);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-display);
-      font-weight: 600;
-      line-height: 1.2;
-      color: var(--fg);
-    }
-
-    h1 { font-size: clamp(32px, 5vw, 48px); }
-    h2 { font-size: clamp(28px, 4vw, 40px); }
-    h3 { font-size: clamp(24px, 3vw, 32px); }
-    h4 { font-size: 20px; }
-
-    p {
-      margin-bottom: var(--spacing-sm);
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    a:hover {
-      color: var(--accent-hover);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--spacing-md);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 24px;
-      font-size: 16px;
-      font-weight: 600;
-      border-radius: var(--radius-sm);
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background-color: var(--accent);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--accent-hover);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background-color: transparent;
-      color: white;
-      border: 2px solid white;
-    }
-
-    .btn-secondary:hover {
-      background-color: white;
-      color: var(--bg-navy);
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      color: var(--accent);
-      border: 2px solid var(--accent);
-    }
-
-    .btn-outline:hover {
-      background-color: var(--accent);
-      color: white;
-    }
-
-    /* Navigation */
-    .nav {
-      background-color: var(--bg-navy);
-      color: white;
-      padding: var(--spacing-sm) 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-logo {
-      font-size: 24px;
-      font-weight: 700;
-      color: white;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: var(--spacing-lg);
-      align-items: center;
-    }
-
-    .nav-link {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: opacity 0.2s;
-    }
-
-    .nav-link:hover {
-      opacity: 0.8;
-    }
-
-    .nav-cta {
-      background-color: var(--accent);
-      color: white;
-      padding: 10px 20px;
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-    }
-
-    .nav-phone {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      color: white;
-      font-weight: 500;
-    }
-
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    /* Hero Section */
-    .hero {
-      background-color: var(--bg-navy);
-      color: white;
-      padding: var(--spacing-3xl) 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-headline {
-      font-size: clamp(36px, 6vw, 56px);
-      font-weight: 700;
-      margin-bottom: var(--spacing-md);
-      line-height: 1.1;
-      color: white;
-    }
-
-    .hero-subheadline {
-      font-size: clamp(18px, 2.5vw, 22px);
-      color: #CBD5E1;
-      margin-bottom: var(--spacing-xl);
-      max-width: 700px;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: var(--spacing-md);
-      flex-wrap: wrap;
-      margin-bottom: var(--spacing-xl);
-    }
-
-    .hero-trust {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-xl);
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      color: #94A3B8;
-    }
-
-    .trust-item svg {
-      width: 20px;
-      height: 20px;
-      color: var(--accent);
-    }
-
-    /* Calculator Section */
-    .calculator-section {
-      padding: var(--spacing-3xl) 0;
-      background-color: var(--bg-content);
-    }
-
-    .calculator-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-xl);
-      align-items: start;
-    }
-
-    .calculator-form {
-      background: var(--surface);
-      padding: var(--spacing-xl);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .calculator-title {
-      margin-bottom: var(--spacing-lg);
-    }
-
-    .form-group {
-      margin-bottom: var(--spacing-md);
-    }
-
-    .form-label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: var(--spacing-xs);
-      color: var(--fg);
-    }
-
-    .form-select, .form-input {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-size: 16px;
-      font-family: var(--font-body);
-      background-color: white;
-      transition: border-color 0.2s;
-    }
-
-    .form-select:focus, .form-input:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-md);
-    }
-
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-xs);
-    }
-
-    .radio-label {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      cursor: pointer;
-    }
-
-    .calculator-output {
-      background: linear-gradient(135deg, var(--bg-navy) 0%, #0F2744 100%);
-      color: white;
-      padding: var(--spacing-xl);
-      border-radius: var(--radius-lg);
-      position: sticky;
-      top: 100px;
-    }
-
-    .output-title {
-      font-size: 20px;
-      margin-bottom: var(--spacing-lg);
-      color: #CBD5E1;
-    }
-
-    .output-row {
-      display: flex;
-      justify-content: space-between;
-      padding: var(--spacing-sm) 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .output-row:last-of-type {
-      border-bottom: none;
-    }
-
-    .output-label {
-      color: #94A3B8;
-    }
-
-    .output-value {
-      font-weight: 600;
-      font-size: 18px;
-    }
-
-    .output-total {
-      margin-top: var(--spacing-lg);
-      padding-top: var(--spacing-lg);
-      border-top: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .output-total-value {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .output-note {
-      margin-top: var(--spacing-md);
-      font-size: 14px;
-      color: #94A3B8;
-      font-style: italic;
-    }
-
-    .jutland-warning {
-      background-color: #FEE2E2;
-      border: 1px solid #FCA5A5;
-      color: #991B1B;
-      padding: var(--spacing-md);
-      border-radius: var(--radius-sm);
-      margin-top: var(--spacing-md);
-    }
-
-    /* Services Section */
-    .services-section {
-      padding: var(--spacing-3xl) 0;
-      background-color: white;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: var(--spacing-2xl);
-    }
-
-    .section-title {
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .section-subtitle {
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--spacing-lg);
-    }
-
-    .service-card {
-      background: var(--bg-content);
-      padding: var(--spacing-xl);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      transition: all 0.3s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--accent);
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      background-color: var(--accent-light);
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--spacing-md);
-      color: var(--accent);
-    }
-
-    .service-card h3 {
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .service-card p {
-      color: var(--muted);
-      margin-bottom: var(--spacing-md);
-    }
-
-    .service-cta {
-      color: var(--accent);
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-    }
-
-    /* How It Works Section */
-    .how-section {
-      padding: var(--spacing-3xl) 0;
-      background-color: var(--bg-content);
-    }
-
-    .steps-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-2xl);
-    }
-
-    .step-card {
-      text-align: center;
-      position: relative;
-    }
-
-    .step-number {
-      width: 48px;
-      height: 48px;
-      background-color: var(--accent);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 700;
-      margin: 0 auto var(--spacing-md);
-    }
-
-    .step-card h3 {
-      margin-bottom: var(--spacing-sm);
-      font-size: 18px;
-    }
-
-    .step-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* Why Choose Us Section */
-    .why-section {
-      padding: var(--spacing-3xl) 0;
-      background-color: white;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-2xl);
-    }
-
-    .benefit-card {
-      text-align: center;
-      padding: var(--spacing-lg);
-    }
-
-    .benefit-icon {
-      width: 64px;
-      height: 64px;
-      background-color: var(--accent-light);
-      border-radius: var(--radius-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto var(--spacing-md);
-      color: var(--accent);
-    }
-
-    .benefit-card h3 {
-      margin-bottom: var(--spacing-xs);
-      font-size: 18px;
-    }
-
-    .benefit-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* References Section */
-    .references-section {
-      padding: var(--spacing-3xl) 0;
-      background-color: var(--bg-content);
-    }
-
-    .references-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-2xl);
-    }
-
-    .reference-card {
-      background: white;
-      padding: var(--spacing-xl);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-    }
-
-    .reference-name {
-      font-weight: 700;
-      margin-bottom: var(--spacing-xs);
-      color: var(--accent);
-    }
-
-    .reference-text {
-      color: var(--muted);
-      font-style: italic;
-      line-height: 1.7;
-    }
-
-    /* FAQ Section */
-    .faq-section {
-      padding: var(--spacing-3xl) 0;
-      background-color: white;
-    }
-
-    .faq-list {
-      max-width: 800px;
-      margin: var(--spacing-2xl) auto 0;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: var(--spacing-md) 0;
-    }
-
-    .faq-question {
-      font-weight: 600;
-      margin-bottom: var(--spacing-xs);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-answer {
-      color: var(--muted);
-      display: none;
-      margin-top: var(--spacing-sm);
-    }
-
-    .faq-item.active .faq-answer {
-      display: block;
-    }
-
-    .faq-item.active .faq-question {
-      color: var(--accent);
-    }
-
-    /* Contact Section */
-    .contact-section {
-      padding: var(--spacing-3xl) 0;
-      background-color: var(--bg-navy);
-      color: white;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-2xl);
-      align-items: center;
-    }
-
-    .contact-info h2 {
-      color: white;
-      margin-bottom: var(--spacing-md);
-    }
-
-    .contact-info p {
-      color: #CBD5E1;
-      margin-bottom: var(--spacing-lg);
-    }
-
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-md);
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-sm);
-      color: white;
-    }
-
-    .contact-form {
-      background: white;
-      padding: var(--spacing-xl);
-      border-radius: var(--radius-lg);
-    }
-
-    .contact-form h3 {
-      color: var(--fg);
-      margin-bottom: var(--spacing-md);
-    }
-
-    /* Footer */
-    .footer {
-      background-color: #050A14;
-      color: #94A3B8;
-      padding: var(--spacing-2xl) 0 var(--spacing-lg);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: var(--spacing-xl);
-      margin-bottom: var(--spacing-xl);
-    }
-
-    .footer-brand h4 {
-      color: white;
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .footer-links h4 {
-      color: white;
-      margin-bottom: var(--spacing-sm);
-      font-size: 16px;
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: var(--spacing-xs);
-    }
-
-    .footer-links a {
-      color: #94A3B8;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: white;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: var(--spacing-lg);
-      text-align: center;
-      font-size: 14px;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .calculator-grid {
-        grid-template-columns: 1fr;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vikarstyrken - Book professionelle vikarer til events, service og køkken</title>
+    <meta name="description" content="Vikarstyrken leverer erfarent personale til events, service og køkken i Storkøbenhavn og på Sjælland. Hurtig, tryg og gennemsigtig timepris." />
+    <style>
+      :root {
+        --bg-navy: #0a1628;
+        --bg-content: #f8fafc;
+        --surface: #ffffff;
+        --fg: #0a1628;
+        --fg-light: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --accent: #2563eb;
+        --accent-hover: #1d4ed8;
+        --accent-light: #dbeafe;
+        --warm-accent: #f59e0b;
+        --success: #10b981;
+
+        --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+        --spacing-xs: 8px;
+        --spacing-sm: 16px;
+        --spacing-md: 24px;
+        --spacing-lg: 32px;
+        --spacing-xl: 48px;
+        --spacing-2xl: 64px;
+        --spacing-3xl: 80px;
+
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
       }
 
-      .calculator-output {
-        position: static;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      .steps-container {
-        grid-template-columns: repeat(2, 1fr);
+      body {
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--fg);
+        background-color: var(--bg-content);
+        -webkit-font-smoothing: antialiased;
       }
 
-      .contact-grid {
-        grid-template-columns: 1fr;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--fg);
       }
-    }
 
-    @media (max-width: 768px) {
+      h1 {
+        font-size: clamp(32px, 5vw, 48px);
+      }
+      h2 {
+        font-size: clamp(28px, 4vw, 40px);
+      }
+      h3 {
+        font-size: clamp(24px, 3vw, 32px);
+      }
+      h4 {
+        font-size: 20px;
+      }
+
+      p {
+        margin-bottom: var(--spacing-sm);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      a:hover {
+        color: var(--accent-hover);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--accent-hover);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-secondary:hover {
+        background-color: white;
+        color: var(--bg-navy);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--accent);
+        border: 2px solid var(--accent);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      /* Navigation */
+      .nav {
+        background-color: var(--bg-navy);
+        color: white;
+        padding: var(--spacing-sm) 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: white;
+      }
+
       .nav-menu {
-        display: none;
+        display: flex;
+        gap: var(--spacing-lg);
+        align-items: center;
+      }
+
+      .nav-link {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 0.2s;
+      }
+
+      .nav-link:hover {
+        opacity: 0.8;
+      }
+
+      .nav-cta {
+        background-color: var(--accent);
+        color: white;
+        padding: 10px 20px;
+        border-radius: var(--radius-sm);
+        font-weight: 600;
+      }
+
+      .nav-phone {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        color: white;
+        font-weight: 500;
       }
 
       .mobile-menu-toggle {
-        display: block;
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        background-color: var(--bg-navy);
+        color: white;
+        padding: var(--spacing-3xl) 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-headline {
+        font-size: clamp(36px, 6vw, 56px);
+        font-weight: 700;
+        margin-bottom: var(--spacing-md);
+        line-height: 1.1;
+        color: white;
+      }
+
+      .hero-subheadline {
+        font-size: clamp(18px, 2.5vw, 22px);
+        color: #cbd5e1;
+        margin-bottom: var(--spacing-xl);
+        max-width: 700px;
       }
 
       .hero-ctas {
-        flex-direction: column;
+        display: flex;
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+        margin-bottom: var(--spacing-xl);
       }
 
-      .hero-ctas .btn {
+      .hero-trust {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-xl);
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        color: #94a3b8;
+      }
+
+      .trust-item svg {
+        width: 20px;
+        height: 20px;
+        color: var(--accent);
+      }
+
+      /* Calculator Section */
+      .calculator-section {
+        padding: var(--spacing-3xl) 0;
+        background-color: var(--bg-content);
+      }
+
+      .calculator-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        align-items: start;
+      }
+
+      .calculator-form {
+        background: var(--surface);
+        padding: var(--spacing-xl);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .calculator-title {
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .form-group {
+        margin-bottom: var(--spacing-md);
+      }
+
+      .form-label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: var(--spacing-xs);
+        color: var(--fg);
+      }
+
+      .form-select,
+      .form-input {
         width: 100%;
+        padding: 12px;
+        border: 2px solid var(--border);
+        border-radius: var(--radius-sm);
+        font-size: 16px;
+        font-family: var(--font-body);
+        background-color: white;
+        transition: border-color 0.2s;
+      }
+
+      .form-select:focus,
+      .form-input:focus {
+        outline: none;
+        border-color: var(--accent);
       }
 
       .form-row {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
+      }
+
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+      }
+
+      .radio-label {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        cursor: pointer;
+      }
+
+      .calculator-output {
+        background: linear-gradient(135deg, var(--bg-navy) 0%, #0f2744 100%);
+        color: white;
+        padding: var(--spacing-xl);
+        border-radius: var(--radius-lg);
+        position: sticky;
+        top: 100px;
+      }
+
+      .output-title {
+        font-size: 20px;
+        margin-bottom: var(--spacing-lg);
+        color: #cbd5e1;
+      }
+
+      .output-row {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--spacing-sm) 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .output-row:last-of-type {
+        border-bottom: none;
+      }
+
+      .output-label {
+        color: #94a3b8;
+      }
+
+      .output-value {
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .output-total {
+        margin-top: var(--spacing-lg);
+        padding-top: var(--spacing-lg);
+        border-top: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .output-total-value {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      .output-note {
+        margin-top: var(--spacing-md);
+        font-size: 14px;
+        color: #94a3b8;
+        font-style: italic;
+      }
+
+      .jutland-warning {
+        background-color: #fee2e2;
+        border: 1px solid #fca5a5;
+        color: #991b1b;
+        padding: var(--spacing-md);
+        border-radius: var(--radius-sm);
+        margin-top: var(--spacing-md);
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: var(--spacing-3xl) 0;
+        background-color: white;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: var(--spacing-2xl);
+      }
+
+      .section-title {
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .section-subtitle {
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+      }
+
+      .service-card {
+        background: var(--bg-content);
+        padding: var(--spacing-xl);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        transition: all 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--accent);
+      }
+
+      .service-icon {
+        width: 48px;
+        height: 48px;
+        background-color: var(--accent-light);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: var(--spacing-md);
+        color: var(--accent);
+      }
+
+      .service-card h3 {
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .service-card p {
+        color: var(--muted);
+        margin-bottom: var(--spacing-md);
+      }
+
+      .service-cta {
+        color: var(--accent);
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+      }
+
+      /* How It Works Section */
+      .how-section {
+        padding: var(--spacing-3xl) 0;
+        background-color: var(--bg-content);
       }
 
       .steps-container {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-2xl);
       }
 
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
+      .step-card {
+        text-align: center;
+        position: relative;
+      }
+
+      .step-number {
+        width: 48px;
+        height: 48px;
+        background-color: var(--accent);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0 auto var(--spacing-md);
+      }
+
+      .step-card h3 {
+        margin-bottom: var(--spacing-sm);
+        font-size: 18px;
+      }
+
+      .step-card p {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* Process Flow */
+      .process-flow {
+        margin-top: var(--spacing-2xl);
+        padding: var(--spacing-lg);
+        background: white;
+        border-radius: var(--radius-lg);
+        text-align: center;
+      }
+
+      /* Why Choose Us Section */
+      .why-section {
+        padding: var(--spacing-3xl) 0;
+        background-color: white;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-2xl);
+      }
+
+      .benefit-card {
+        text-align: center;
+        padding: var(--spacing-lg);
+      }
+
+      .benefit-icon {
+        width: 64px;
+        height: 64px;
+        background-color: var(--accent-light);
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--spacing-md);
+        color: var(--accent);
+      }
+
+      .benefit-card h3 {
+        margin-bottom: var(--spacing-xs);
+        font-size: 18px;
+      }
+
+      .benefit-card p {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* References Section */
+      .references-section {
+        padding: var(--spacing-3xl) 0;
+        background-color: var(--bg-content);
       }
 
       .references-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-2xl);
       }
-    }
 
-    @media (max-width: 480px) {
+      .reference-card {
+        background: white;
+        padding: var(--spacing-xl);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+      }
+
+      .reference-name {
+        font-weight: 700;
+        margin-bottom: var(--spacing-xs);
+        color: var(--accent);
+      }
+
+      .reference-text {
+        color: var(--muted);
+        font-style: italic;
+        line-height: 1.7;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        padding: var(--spacing-3xl) 0;
+        background-color: white;
+      }
+
+      .faq-list {
+        max-width: 800px;
+        margin: var(--spacing-2xl) auto 0;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid var(--border);
+        padding: var(--spacing-md) 0;
+      }
+
+      .faq-question {
+        font-weight: 600;
+        margin-bottom: var(--spacing-xs);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .faq-answer {
+        color: var(--muted);
+        display: none;
+        margin-top: var(--spacing-sm);
+      }
+
+      .faq-item.active .faq-answer {
+        display: block;
+      }
+
+      .faq-item.active .faq-question {
+        color: var(--accent);
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: var(--spacing-3xl) 0;
+        background-color: var(--bg-navy);
+        color: white;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-2xl);
+        align-items: center;
+      }
+
+      .contact-info h2 {
+        color: white;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .contact-info p {
+        color: #cbd5e1;
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        color: white;
+      }
+
+      .contact-form {
+        background: white;
+        padding: var(--spacing-xl);
+        border-radius: var(--radius-lg);
+      }
+
+      .contact-form h3 {
+        color: var(--fg);
+        margin-bottom: var(--spacing-md);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #050a14;
+        color: #94a3b8;
+        padding: var(--spacing-2xl) 0 var(--spacing-lg);
+      }
+
       .footer-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="container nav-container">
-      <div class="nav-logo">Vikarstyrken</div>
-      <div class="nav-menu">
-        <a href="#forside" class="nav-link">Forside</a>
-        <a href="#brancher" class="nav-link">Brancher</a>
-        <a href="#prisberegner" class="nav-link">Prisberegner</a>
-        <a href="#saadan-fungerer-det" class="nav-link">Sådan fungerer det</a>
-        <a href="#referencer" class="nav-link">Referencer</a>
-        <a href="#kontakt" class="nav-link">Kontakt</a>
-        <a href="#prisberegner" class="nav-cta">Beregn pris</a>
-        <a href="tel:+4512345678" class="nav-phone">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          Ring nu
-        </a>
-      </div>
-      <button class="mobile-menu-toggle" aria-label="Menu">☰</button>
-    </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="forside">
-    <div class="container hero-content">
-      <h1 class="hero-headline">Book professionelle vikarer til events, service og køkken i Storkøbenhavn</h1>
-      <p class="hero-subheadline">Mangler I tjenere, værter, bartendere, receptionister eller køkkenhjælp? Vikarstyrken leverer erfarent personale hurtigt, trygt og til en gennemsigtig timepris.</p>
-      <div class="hero-ctas">
-        <a href="#prisberegner" class="btn btn-primary">Beregn pris nu</a>
-        <a href="tel:+4512345678" class="btn btn-secondary">Ring og book personale</a>
-      </div>
-      <div class="hero-trust">
-        <div class="trust-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Hurtig bemanding
-        </div>
-        <div class="trust-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          Erfarent personale
-        </div>
-        <div class="trust-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-          Fast proces
-        </div>
-        <div class="trust-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          Storkøbenhavn og Sjælland
-        </div>
-        <div class="trust-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-          Vi assisterer ikke i Jylland
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Calculator Section -->
-  <section class="calculator-section" id="prisberegner">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Se prisen før I booker</h2>
-        <p class="section-subtitle">De fleste vikarbureauer kræver, at I ringer eller venter på et tilbud. Hos Vikarstyrken kan I hurtigt beregne en forventet timepris.</p>
-      </div>
-      <div class="calculator-grid">
-        <div class="calculator-form">
-          <h3 class="calculator-title">Beregn jeres pris</h3>
-          <div class="form-group">
-            <label class="form-label">Hvilken type personale mangler I?</label>
-            <select class="form-select" id="role">
-              <option value="">Vælg rolle</option>
-              <option value="tjener" data-price="250">Tjener</option>
-              <option value="vaert" data-price="275">Vært / værtinde</option>
-              <option value="moedeforplejer" data-price="285">Mødeforplejer</option>
-              <option value="receptionist" data-price="295">Receptionist</option>
-              <option value="bartender" data-price="300">Bartender</option>
-              <option value="kok" data-price="350">Kok</option>
-              <option value="koekkenmedhjaelper" data-price="225">Køkkenmedhjælper</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Hvor skal opgaven udføres?</label>
-            <select class="form-select" id="location">
-              <option value="">Vælg område</option>
-              <option value="storkoebenhavn" data-surcharge="0">Storkøbenhavn</option>
-              <option value="sjælland" data-surcharge="25">Uden for Storkøbenhavn på Sjælland</option>
-              <option value="jylland" data-surcharge="0">Jylland</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Antal medarbejdere</label>
-              <input type="number" class="form-input" id="staff" min="1" value="1" placeholder="1">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Antal timer</label>
-              <input type="number" class="form-input" id="hours" min="1" value="4" placeholder="4">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Er opgaven akut?</label>
-            <div class="radio-group">
-              <label class="radio-label">
-                <input type="radio" name="urgent" value="normal" checked> Normal booking
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="urgent" value="urgent"> Inden for 24 timer (+50 kr./time)
-              </label>
-            </div>
-          </div>
-          <div id="jutland-warning" class="jutland-warning" style="display: none;">
-            <strong>Vi assisterer desværre ikke i Jylland.</strong> Vi hjælper primært virksomheder i Storkøbenhavn og på Sjælland. På nuværende tidspunkt assisterer vi ikke i Jylland.
-          </div>
-        </div>
-        <div class="calculator-output">
-          <h3 class="output-title">Estimeret pris</h3>
-          <div class="output-row">
-            <span class="output-label">Timepris fra:</span>
-            <span class="output-value" id="hourly-price">— kr.</span>
-          </div>
-          <div class="output-row">
-            <span class="output-label">Lokationstillæg:</span>
-            <span class="output-value" id="surcharge">— kr.</span>
-          </div>
-          <div class="output-row">
-            <span class="output-label">Akuttillæg:</span>
-            <span class="output-value" id="urgent-fee">— kr.</span>
-          </div>
-          <div class="output-total">
-            <div class="output-row">
-              <span class="output-label">Estimeret total:</span>
-              <span class="output-total-value" id="total-price">— kr.</span>
-            </div>
-            <div class="output-row">
-              <span class="output-label">(ekskl. moms)</span>
-              <span></span>
-            </div>
-          </div>
-          <p class="output-note">Den endelige pris bekræftes, når vi har gennemgået opgaven med jer.</p>
-          <div style="margin-top: var(--spacing-lg);">
-            <a href="#kontakt" class="btn btn-primary" style="width: 100%;">Send forespørgsel</a>
-            <a href="tel:+4512345678" class="btn btn-secondary" style="width: 100%; margin-top: var(--spacing-sm);">Ring til os nu</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section class="services-section" id="brancher">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Vores brancher</h2>
-        <p class="section-subtitle">Vi leverer kvalificeret personale til alle typer af serviceopgaver</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
-          </div>
-          <h3>Tjener</h3>
-          <p>Professionelle tjenere til events, restauranter, hoteller, selskaber og konferencer.</p>
-          <a href="#prisberegner" class="service-cta">Beregn pris →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-          </div>
-          <h3>Vært / værtinde</h3>
-          <p>Værter til modtagelse af gæster, registrering, garderobe, gæsteflow og event-hosting.</p>
-          <a href="#prisberegner" class="service-cta">Beregn pris →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-          </div>
-          <h3>Mødeforplejer</h3>
-          <p>Kaffe, morgenmad, frokostservice, mødelokaler og konferenceforplejning.</p>
-          <a href="#prisberegner" class="service-cta">Beregn pris →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-          </div>
-          <h3>Receptionist</h3>
-          <p>Front desk, gæstehåndtering, telefonpasning og midlertidig receptionsdækning.</p>
-          <a href="#prisberegner" class="service-cta">Beregn pris →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"></path><path d="M22 12h-4"></path><path d="M6 12H2"></path></svg>
-          </div>
-          <h3>Bartender</h3>
-          <p>Barservice, cocktails, øl/vinservice og eventbarer til enhver anledning.</p>
-          <a href="#prisberegner" class="service-cta">Beregn pris →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3"></path></svg>
-          </div>
-          <h3>Kok eller køkkenmedhjælper</h3>
-          <p>Ekstra hænder til køkkener, forberedelse, service, opvask og travle perioder.</p>
-          <a href="#prisberegner" class="service-cta">Beregn pris →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works Section -->
-  <section class="how-section" id="saadan-fungerer-det">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Så nemt booker I personale</h2>
-        <p class="section-subtitle">Fire enkle trin fra behov til løsning</p>
-      </div>
-      <div class="steps-container">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3>I mangler mandskab</h3>
-          <p>Klik på "Beregn pris" eller kontakt os direkte, når I har brug for ekstra hænder.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3>Vi taler om behovet</h3>
-          <p>I ringer eller skriver til os, og vi afklarer rolle, tidspunkt, sted og særlige præferencer.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3>Vi bekræfter opgaven</h3>
-          <p>I modtager en bekræftelse, og vi sender den rette vikar ud til virksomheden.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">4</div>
-          <h3>Vi følger op og afregner</h3>
-          <p>Efter opgaven hører vi om oplevelsen, sender faktura og sørger for aflønning af medarbejderen.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us Section -->
-  <section class="why-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Hvorfor vælge Vikarstyrken?</h2>
-        <p class="section-subtitle">Vi gør det nemt at finde det rette personale</p>
-      </div>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          </div>
-          <h3>Hurtig respons</h3>
-          <p>Vi hjælper, når bemandingsbehovet opstår pludseligt.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          </div>
-          <h3>Erfarent personale</h3>
-          <p>Vores medarbejdere matches til rolle, branche og opgavetype.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-          </div>
-          <h3>Gennemsigtige priser</h3>
-          <p>Prisberegneren giver jer et hurtigt estimat, før I booker.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-          </div>
-          <h3>Fast proces</h3>
-          <p>Bekræftelse, bemanding, opfølgning og fakturering håndteres klart.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          </div>
-          <h3>Storkøbenhavn-specialist</h3>
-          <p>Stort fokus på København, Storkøbenhavn og Sjælland.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-          </div>
-          <h3>Service-minded team</h3>
-          <p>Personale udvalgt for pålidelighed, fremtoning, kommunikation og arbejdsmoral.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- References Section -->
-  <section class="references-section" id="referencer">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Virksomheder og events vi hjælper</h2>
-        <p class="section-subtitle">Vikarstyrken samarbejder med restauranter, hoteller, venues, kongrescentre og events, hvor stabilt personale og god service er afgørende.</p>
-      </div>
-      <div class="references-grid">
-        <div class="reference-card">
-          <div class="reference-name">Roskilde Kongrescenter</div>
-          <p class="reference-text">"Vikarstyrken har hjulpet os med fleksibel bemanding til travle arrangementer. De reagerer hurtigt, forstår vores behov og sender personale, der kan indgå professionelt i driften fra start."</p>
-        </div>
-        <div class="reference-card">
-          <div class="reference-name">Royal Arena</div>
-          <p class="reference-text">"Når bemandingen skal fungere til større arrangementer, er pålidelighed afgørende. Vikarstyrken har vist sig som en stabil samarbejdspartner med serviceorienterede vikarer."</p>
-        </div>
-        <div class="reference-card">
-          <div class="reference-name">Distortion</div>
-          <p class="reference-text">"Til events med højt tempo har vi brug for folk, der møder klar, smilende og løsningsorienteret ind. Vikarstyrken har leveret personale, der kan håndtere pressede situationer."</p>
-        </div>
-        <div class="reference-card">
-          <div class="reference-name">Hotel Kong Arthur</div>
-          <p class="reference-text">"Vi sætter pris på samarbejdspartnere, der forstår hotel- og servicebranchen. Vikarstyrken er nemme at kommunikere med og leverer personale med god situationsfornemmelse."</p>
-        </div>
-        <div class="reference-card">
-          <div class="reference-name">Royal Stage</div>
-          <p class="reference-text">"Vikarstyrken har været en fleksibel løsning, når vi har haft behov for ekstra hænder. Processen er enkel, og opfølgningen efter opgaven giver tryghed."</p>
-        </div>
-        <div class="reference-card">
-          <div class="reference-name">Jespers Torvekøkken</div>
-          <p class="reference-text">"I køkken- og cateringopgaver er stabilitet og tempo vigtigt. Vikarstyrken hjælper os med ekstra kapacitet, når behovet opstår."</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="faq-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Ofte stillede spørgsmål</h2>
-        <p class="section-subtitle">Få svar på de mest almindelige spørgsmål om vores service</p>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item active">
-          <div class="faq-question">Hvilke brancher leverer I vikarer til? <span>▼</span></div>
-          <div class="faq-answer">Vi leverer primært vikarer til hospitality- og servicebranchen, herunder restauranter, hoteller, event venues, kongrescentre og catering. Vores specialer er tjenere, værter, bartendere, receptionister, mødeforplejere og køkkenpersonale.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Hvor hurtigt kan I sende personale? <span>▼</span></div>
-          <div class="faq-answer">Vi kan ofte sende personale med kort varsel. Ved akutte behov inden for 24 timer gør vi altid, hvad vi kan for at hjælpe. Kontakt os direkte for at høre om mulighederne til dit specifikke behov.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Kan vi få en pris med det samme? <span>▼</span></div>
-          <div class="faq-answer">Ja! Brug vores prisberegner her på siden for at få et hurtigt estimat på timeprisen baseret på rolle, lokation og antal timer. Den endelige pris bekræftes, når vi har gennemgået opgaven med jer.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Dækker I hele Danmark? <span>▼</span></div>
-          <div class="faq-answer">Vi hjælper primært virksomheder i Storkøbenhavn og på Sjælland. På nuværende tidspunkt assisterer vi ikke i Jylland. Vi kan dog vurdere opgaver på Fyn og øvrige områder efter aftale.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Assisterer I i Jylland? <span>▼</span></div>
-          <div class="faq-answer">Nej, på nuværende tidspunkt assisterer vi ikke i Jylland. Vi fokuserer på at levere den bedste service i Storkøbenhavn og på Sjælland, hvor vi har vores stærkeste netværk af personale.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Kan vi booke akut? <span>▼</span></div>
-          <div class="faq-answer">Ja, vi håndterer akutte bookinger. Ved behov inden for 24 timer tillægger vi et akuttillæg på 50 kr. pr. time. Ring til os direkte for hurtigst mulig hjælp.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Hvordan foregår bekræftelse og fakturering? <span>▼</span></div>
-          <div class="faq-answer">Når vi har aftalt detaljerne, sender I en bekræftelse. Efter opgaven følger vi op på jeres oplevelse, sender faktura og sørger for aflønning af medarbejderen. Alt håndteres gennem os for enkelhed.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Kan vi angive præferencer til personalet? <span>▼</span></div>
-          <div class="faq-answer">Ja, I kan altid angive præferencer til erfaring, sprog, uniform eller andre specifikke krav. Vi matcher personalet bedst muligt til jeres behov.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-section" id="kontakt">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h2>Klar til at booke personale?</h2>
-          <p>Kontakt os i dag for en uforpligtende snak om jeres bemandingsbehov. Vi svarer hurtigt og finder den rette løsning til jer.</p>
-          <div class="contact-details">
-            <div class="contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              <strong>Ring til os:</strong> +45 12 34 56 78
-            </div>
-            <div class="contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              <strong>Email:</strong> info@vikarstyrken.dk
-            </div>
-            <div class="contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <strong>Område:</strong> Storkøbenhavn og Sjælland
-            </div>
-          </div>
-        </div>
-        <div class="contact-form">
-          <h3>Send os en besked</h3>
-          <form>
-            <div class="form-group">
-              <label class="form-label">Virksomhed</label>
-              <input type="text" class="form-input" placeholder="Jeres virksomhedsnavn">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Kontaktperson</label>
-              <input type="text" class="form-input" placeholder="Dit navn">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-input" placeholder="din@email.dk">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Telefon</label>
-              <input type="tel" class="form-input" placeholder="Dit telefonnummer">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Besked</label>
-              <textarea class="form-input" rows="4" placeholder="Beskriv jeres behov..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send besked</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h4>Vikarstyrken</h4>
-          <p>Vi leverer erfarent personale til events, service og køkken i Storkøbenhavn og på Sjælland. Hurtigt, trygt og til gennemsigtige priser.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Menu</h4>
-          <ul>
-            <li><a href="#forside">Forside</a></li>
-            <li><a href="#brancher">Brancher</a></li>
-            <li><a href="#prisberegner">Prisberegner</a></li>
-            <li><a href="#saadan-fungerer-det">Sådan fungerer det</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Information</h4>
-          <ul>
-            <li><a href="#referencer">Referencer</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-            <li><a href="#">Om os</a></li>
-            <li><a href="#">Privatlivspolitik</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Kontakt</h4>
-          <ul>
-            <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
-            <li><a href="mailto:info@vikarstyrken.dk">info@vikarstyrken.dk</a></li>
-            <li>Storkøbenhavn og Sjælland</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 Vikarstyrken. Alle rettigheder forbeholdes. Vi hjælper primært virksomheder i Storkøbenhavn og på Sjælland.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Calculator functionality
-    const roleSelect = document.getElementById('role');
-    const locationSelect = document.getElementById('location');
-    const staffInput = document.getElementById('staff');
-    const hoursInput = document.getElementById('hours');
-    const urgentRadios = document.querySelectorAll('input[name="urgent"]');
-    const jutlandWarning = document.getElementById('jutland-warning');
-    
-    const hourlyPriceEl = document.getElementById('hourly-price');
-    const surchargeEl = document.getElementById('surcharge');
-    const urgentFeeEl = document.getElementById('urgent-fee');
-    const totalPriceEl = document.getElementById('total-price');
-
-    function calculatePrice() {
-      const selectedRole = roleSelect.options[roleSelect.selectedIndex];
-      const selectedLocation = locationSelect.options[locationSelect.selectedIndex];
-      
-      const hourlyPrice = selectedRole.value ? parseInt(selectedRole.dataset.price) : 0;
-      const surcharge = selectedLocation.value ? parseInt(selectedLocation.dataset.surcharge) : 0;
-      const urgent = document.querySelector('input[name="urgent"]:checked').value === 'urgent' ? 50 : 0;
-      
-      const staff = parseInt(staffInput.value) || 0;
-      const hours = parseInt(hoursInput.value) || 0;
-      
-      // Show/hide Jutland warning
-      if (selectedLocation.value === 'jylland') {
-        jutlandWarning.style.display = 'block';
-        hourlyPriceEl.textContent = '—';
-        surchargeEl.textContent = '—';
-        urgentFeeEl.textContent = '—';
-        totalPriceEl.textContent = '—';
-        return;
-      } else {
-        jutlandWarning.style.display = 'none';
+      .footer-brand h4 {
+        color: white;
+        margin-bottom: var(--spacing-sm);
       }
-      
-      // Calculate
-      const pricePerHour = hourlyPrice + surcharge + urgent;
-      const total = pricePerHour * staff * hours;
-      
-      // Update display
-      hourlyPriceEl.textContent = hourlyPrice ? `${hourlyPrice} kr.` : '— kr.';
-      surchargeEl.textContent = surcharge ? `+${surcharge} kr.` : '0 kr.';
-      urgentFeeEl.textContent = urgent ? `+${urgent} kr.` : '0 kr.';
-      totalPriceEl.textContent = total ? `${total.toLocaleString()} kr.` : '— kr.';
-    }
 
-    // Event listeners
-    roleSelect.addEventListener('change', calculatePrice);
-    locationSelect.addEventListener('change', calculatePrice);
-    staffInput.addEventListener('input', calculatePrice);
-    hoursInput.addEventListener('input', calculatePrice);
-    urgentRadios.forEach(radio => radio.addEventListener('change', calculatePrice));
-
-    // FAQ toggle
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        item.classList.toggle('active');
-      });
-    });
-
-    // Mobile menu toggle
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    mobileMenuToggle.addEventListener('click', () => {
-      if (navMenu.style.display === 'flex') {
-        navMenu.style.display = 'none';
-      } else {
-        navMenu.style.display = 'flex';
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.position = 'absolute';
-        navMenu.style.top = '100%';
-        navMenu.style.left = '0';
-        navMenu.style.right = '0';
-        navMenu.style.backgroundColor = '#0A1628';
-        navMenu.style.padding = '20px';
-        navMenu.style.gap = '15px';
+      .footer-links h4 {
+        color: white;
+        margin-bottom: var(--spacing-sm);
+        font-size: 16px;
       }
-    });
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .footer-links a {
+        color: #94a3b8;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: var(--spacing-lg);
+        text-align: center;
+        font-size: 14px;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .calculator-grid {
+          grid-template-columns: 1fr;
         }
-        // Close mobile menu if open
-        if (window.innerWidth <= 768) {
-          navMenu.style.display = 'none';
+
+        .calculator-output {
+          position: static;
         }
-      });
-    });
-  </script>
-</body>
+
+        .steps-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .process-flow {
+          padding: var(--spacing-sm);
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        .hero-ctas {
+          flex-direction: column;
+        }
+
+        .hero-ctas .btn {
+          width: 100%;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .steps-container {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .references-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="container nav-container">
+        <div class="nav-logo">Vikarstyrken</div>
+        <div class="nav-menu">
+          <a href="#forside" class="nav-link">Forside</a>
+          <a href="#brancher" class="nav-link">Brancher</a>
+          <a href="#prisberegner" class="nav-link">Prisberegner</a>
+          <a href="#saadan-fungerer-det" class="nav-link">Sådan fungerer det</a>
+          <a href="#referencer" class="nav-link">Referencer</a>
+          <a href="#kontakt" class="nav-link">Kontakt</a>
+          <a href="#prisberegner" class="nav-cta">Beregn pris</a>
+          <a href="tel:+4512345678" class="nav-phone">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Ring nu
+          </a>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="forside">
+      <div class="container hero-content">
+        <h1 class="hero-headline">Book professionelle vikarer til events, service og køkken i Storkøbenhavn</h1>
+        <p class="hero-subheadline">Mangler I tjenere, værter, bartendere, receptionister eller køkkenhjælp? Vikarstyrken leverer erfarent personale hurtigt, trygt og til en gennemsigtig timepris.</p>
+        <div class="hero-ctas">
+          <a href="#prisberegner" class="btn btn-primary">Beregn pris nu</a>
+          <a href="tel:+4512345678" class="btn btn-secondary">Ring og book personale</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            Hurtig bemanding
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Erfarent personale
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            Fast proces
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Storkøbenhavn og Sjælland
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="15" y1="9" x2="9" y2="15"></line>
+              <line x1="9" y1="9" x2="15" y2="15"></line>
+            </svg>
+            Vi assisterer ikke i Jylland
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section" id="prisberegner">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Se prisen før I booker</h2>
+          <p class="section-subtitle">De fleste vikarbureauer kræver, at I ringer eller venter på et tilbud. Hos Vikarstyrken kan I hurtigt beregne en forventet timepris.</p>
+        </div>
+        <div class="calculator-grid">
+          <div class="calculator-form">
+            <h3 class="calculator-title">Beregn jeres pris</h3>
+            <div class="form-group">
+              <label class="form-label">Hvilken type personale mangler I?</label>
+              <select class="form-select" id="role">
+                <option value="">Vælg rolle</option>
+                <option value="tjener" data-price="250">Tjener</option>
+                <option value="vaert" data-price="275">Vært / værtinde</option>
+                <option value="moedeforplejer" data-price="285">Mødeforplejer</option>
+                <option value="receptionist" data-price="295">Receptionist</option>
+                <option value="bartender" data-price="300">Bartender</option>
+                <option value="kok" data-price="350">Kok</option>
+                <option value="koekkenmedhjaelper" data-price="225">Køkkenmedhjælper</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Hvor skal opgaven udføres?</label>
+              <select class="form-select" id="location">
+                <option value="">Vælg område</option>
+                <option value="storkoebenhavn" data-surcharge="0">Storkøbenhavn</option>
+                <option value="sjælland" data-surcharge="25">Uden for Storkøbenhavn på Sjælland</option>
+                <option value="jylland" data-surcharge="0">Jylland</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Antal medarbejdere</label>
+                <input type="number" class="form-input" id="staff" min="1" value="1" placeholder="1" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Antal timer</label>
+                <input type="number" class="form-input" id="hours" min="1" value="4" placeholder="4" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Er opgaven akut?</label>
+              <div class="radio-group">
+                <label class="radio-label"> <input type="radio" name="urgent" value="normal" checked /> Normal booking </label>
+                <label class="radio-label"> <input type="radio" name="urgent" value="urgent" /> Inden for 24 timer (+50 kr./time) </label>
+              </div>
+            </div>
+            <div id="jutland-warning" class="jutland-warning" style="display: none"><strong>Vi assisterer desværre ikke i Jylland.</strong> Vi hjælper primært virksomheder i Storkøbenhavn og på Sjælland. På nuværende tidspunkt assisterer vi ikke i Jylland.</div>
+          </div>
+          <div class="calculator-output">
+            <h3 class="output-title">Estimeret pris</h3>
+            <div class="output-row">
+              <span class="output-label">Timepris fra:</span>
+              <span class="output-value" id="hourly-price">— kr.</span>
+            </div>
+            <div class="output-row">
+              <span class="output-label">Lokationstillæg:</span>
+              <span class="output-value" id="surcharge">— kr.</span>
+            </div>
+            <div class="output-row">
+              <span class="output-label">Akuttillæg:</span>
+              <span class="output-value" id="urgent-fee">— kr.</span>
+            </div>
+            <div class="output-total">
+              <div class="output-row">
+                <span class="output-label">Estimeret total:</span>
+                <span class="output-total-value" id="total-price">— kr.</span>
+              </div>
+              <div class="output-row">
+                <span class="output-label">(ekskl. moms)</span>
+                <span></span>
+              </div>
+            </div>
+            <p class="output-note">Den endelige pris bekræftes, når vi har gennemgået opgaven med jer.</p>
+            <div style="margin-top: var(--spacing-lg)">
+              <a href="#kontakt" class="btn btn-primary" style="width: 100%">Send forespørgsel</a>
+              <a href="tel:+4512345678" class="btn btn-secondary" style="width: 100%; margin-top: var(--spacing-sm)">Ring til os nu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="brancher">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Vores brancher</h2>
+          <p class="section-subtitle">Vi leverer kvalificeret personale til alle typer af serviceopgaver</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                <line x1="6" y1="1" x2="6" y2="4"></line>
+                <line x1="10" y1="1" x2="10" y2="4"></line>
+                <line x1="14" y1="1" x2="14" y2="4"></line>
+              </svg>
+            </div>
+            <h3>Tjener</h3>
+            <p>Professionelle tjenere til events, restauranter, hoteller, selskaber og konferencer.</p>
+            <a href="#prisberegner" class="service-cta">Beregn pris →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h3>Vært / værtinde</h3>
+            <p>Værter til modtagelse af gæster, registrering, garderobe, gæsteflow og event-hosting.</p>
+            <a href="#prisberegner" class="service-cta">Beregn pris →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <h3>Mødeforplejer</h3>
+            <p>Kaffe, morgenmad, frokostservice, mødelokaler og konferenceforplejning.</p>
+            <a href="#prisberegner" class="service-cta">Beregn pris →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3>Receptionist</h3>
+            <p>Front desk, gæstehåndtering, telefonpasning og midlertidig receptionsdækning.</p>
+            <a href="#prisberegner" class="service-cta">Beregn pris →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6L7 17l-5-5"></path>
+                <path d="M22 12h-4"></path>
+                <path d="M6 12H2"></path>
+              </svg>
+            </div>
+            <h3>Bartender</h3>
+            <p>Barservice, cocktails, øl/vinservice og eventbarer til enhver anledning.</p>
+            <a href="#prisberegner" class="service-cta">Beregn pris →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+                <path d="M7 2v20"></path>
+                <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3"></path>
+              </svg>
+            </div>
+            <h3>Kok eller køkkenmedhjælper</h3>
+            <p>Ekstra hænder til køkkener, forberedelse, service, opvask og travle perioder.</p>
+            <a href="#prisberegner" class="service-cta">Beregn pris →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-section" id="saadan-fungerer-det">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Så nemt booker I personale</h2>
+          <p class="section-subtitle">Fire enkle trin fra behov til løsning</p>
+        </div>
+        <div class="process-flow">
+          <img src="VikarStyrken proces start til slut_page-0001.jpg" alt="VikarStyrken proces fra start til slut" style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 0 auto" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Hvorfor vælge Vikarstyrken?</h2>
+          <p class="section-subtitle">Vi gør det nemt at finde det rette personale</p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3>Hurtig respons</h3>
+            <p>Vi hjælper, når bemandingsbehovet opstår pludseligt.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3>Erfarent personale</h3>
+            <p>Vores medarbejdere matches til rolle, branche og opgavetype.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <h3>Gennemsigtige priser</h3>
+            <p>Prisberegneren giver jer et hurtigt estimat, før I booker.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            <h3>Fast proces</h3>
+            <p>Bekræftelse, bemanding, opfølgning og fakturering håndteres klart.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <h3>Storkøbenhavn-specialist</h3>
+            <p>Stort fokus på København, Storkøbenhavn og Sjælland.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+            </div>
+            <h3>Service-minded team</h3>
+            <p>Personale udvalgt for pålidelighed, fremtoning, kommunikation og arbejdsmoral.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- References Section -->
+    <section class="references-section" id="referencer">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Virksomheder og events vi hjælper</h2>
+          <p class="section-subtitle">Vikarstyrken samarbejder med restauranter, hoteller, venues, kongrescentre og events, hvor stabilt personale og god service er afgørende.</p>
+        </div>
+        <div class="references-grid">
+          <div class="reference-card">
+            <div class="reference-name">Roskilde Kongrescenter</div>
+            <p class="reference-text">"Vikarstyrken har hjulpet os med fleksibel bemanding til travle arrangementer. De reagerer hurtigt, forstår vores behov og sender personale, der kan indgå professionelt i driften fra start."</p>
+          </div>
+          <div class="reference-card">
+            <div class="reference-name">Royal Arena</div>
+            <p class="reference-text">"Når bemandingen skal fungere til større arrangementer, er pålidelighed afgørende. Vikarstyrken har vist sig som en stabil samarbejdspartner med serviceorienterede vikarer."</p>
+          </div>
+          <div class="reference-card">
+            <div class="reference-name">Distortion</div>
+            <p class="reference-text">"Til events med højt tempo har vi brug for folk, der møder klar, smilende og løsningsorienteret ind. Vikarstyrken har leveret personale, der kan håndtere pressede situationer."</p>
+          </div>
+          <div class="reference-card">
+            <div class="reference-name">Hotel Kong Arthur</div>
+            <p class="reference-text">"Vi sætter pris på samarbejdspartnere, der forstår hotel- og servicebranchen. Vikarstyrken er nemme at kommunikere med og leverer personale med god situationsfornemmelse."</p>
+          </div>
+          <div class="reference-card">
+            <div class="reference-name">Royal Stage</div>
+            <p class="reference-text">"Vikarstyrken har været en fleksibel løsning, når vi har haft behov for ekstra hænder. Processen er enkel, og opfølgningen efter opgaven giver tryghed."</p>
+          </div>
+          <div class="reference-card">
+            <div class="reference-name">Jespers Torvekøkken</div>
+            <p class="reference-text">"I køkken- og cateringopgaver er stabilitet og tempo vigtigt. Vikarstyrken hjælper os med ekstra kapacitet, når behovet opstår."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Ofte stillede spørgsmål</h2>
+          <p class="section-subtitle">Få svar på de mest almindelige spørgsmål om vores service</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item active">
+            <div class="faq-question">Hvilke brancher leverer I vikarer til? <span>▼</span></div>
+            <div class="faq-answer">Vi leverer primært vikarer til hospitality- og servicebranchen, herunder restauranter, hoteller, event venues, kongrescentre og catering. Vores specialer er tjenere, værter, bartendere, receptionister, mødeforplejere og køkkenpersonale.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Hvor hurtigt kan I sende personale? <span>▼</span></div>
+            <div class="faq-answer">Vi kan ofte sende personale med kort varsel. Ved akutte behov inden for 24 timer gør vi altid, hvad vi kan for at hjælpe. Kontakt os direkte for at høre om mulighederne til dit specifikke behov.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Kan vi få en pris med det samme? <span>▼</span></div>
+            <div class="faq-answer">Ja! Brug vores prisberegner her på siden for at få et hurtigt estimat på timeprisen baseret på rolle, lokation og antal timer. Den endelige pris bekræftes, når vi har gennemgået opgaven med jer.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Dækker I hele Danmark? <span>▼</span></div>
+            <div class="faq-answer">Vi hjælper primært virksomheder i Storkøbenhavn og på Sjælland. På nuværende tidspunkt assisterer vi ikke i Jylland. Vi kan dog vurdere opgaver på Fyn og øvrige områder efter aftale.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Assisterer I i Jylland? <span>▼</span></div>
+            <div class="faq-answer">Nej, på nuværende tidspunkt assisterer vi ikke i Jylland. Vi fokuserer på at levere den bedste service i Storkøbenhavn og på Sjælland, hvor vi har vores stærkeste netværk af personale.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Kan vi booke akut? <span>▼</span></div>
+            <div class="faq-answer">Ja, vi håndterer akutte bookinger. Ved behov inden for 24 timer tillægger vi et akuttillæg på 50 kr. pr. time. Ring til os direkte for hurtigst mulig hjælp.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Hvordan foregår bekræftelse og fakturering? <span>▼</span></div>
+            <div class="faq-answer">Når vi har aftalt detaljerne, sender I en bekræftelse. Efter opgaven følger vi op på jeres oplevelse, sender faktura og sørger for aflønning af medarbejderen. Alt håndteres gennem os for enkelhed.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Kan vi angive præferencer til personalet? <span>▼</span></div>
+            <div class="faq-answer">Ja, I kan altid angive præferencer til erfaring, sprog, uniform eller andre specifikke krav. Vi matcher personalet bedst muligt til jeres behov.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="kontakt">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Klar til at booke personale?</h2>
+            <p>Kontakt os i dag for en uforpligtende snak om jeres bemandingsbehov. Vi svarer hurtigt og finder den rette løsning til jer.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <strong>Ring til os:</strong> +45 12 34 56 78
+              </div>
+              <div class="contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <strong>Email:</strong> info@vikarstyrken.dk
+              </div>
+              <div class="contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <strong>Område:</strong> Storkøbenhavn og Sjælland
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <h3>Send os en besked</h3>
+            <form>
+              <div class="form-group">
+                <label class="form-label">Virksomhed</label>
+                <input type="text" class="form-input" placeholder="Jeres virksomhedsnavn" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Kontaktperson</label>
+                <input type="text" class="form-input" placeholder="Dit navn" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input" placeholder="din@email.dk" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Telefon</label>
+                <input type="tel" class="form-input" placeholder="Dit telefonnummer" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Besked</label>
+                <textarea class="form-input" rows="4" placeholder="Beskriv jeres behov..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%">Send besked</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h4>Vikarstyrken</h4>
+            <p>Vi leverer erfarent personale til events, service og køkken i Storkøbenhavn og på Sjælland. Hurtigt, trygt og til gennemsigtige priser.</p>
+          </div>
+          <div class="footer-links">
+            <h4>Menu</h4>
+            <ul>
+              <li><a href="#forside">Forside</a></li>
+              <li><a href="#brancher">Brancher</a></li>
+              <li><a href="#prisberegner">Prisberegner</a></li>
+              <li><a href="#saadan-fungerer-det">Sådan fungerer det</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Information</h4>
+            <ul>
+              <li><a href="#referencer">Referencer</a></li>
+              <li><a href="#kontakt">Kontakt</a></li>
+              <li><a href="#">Om os</a></li>
+              <li><a href="#">Privatlivspolitik</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Kontakt</h4>
+            <ul>
+              <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
+              <li><a href="mailto:info@vikarstyrken.dk">info@vikarstyrken.dk</a></li>
+              <li>Storkøbenhavn og Sjælland</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Vikarstyrken. Alle rettigheder forbeholdes. Vi hjælper primært virksomheder i Storkøbenhavn og på Sjælland.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Calculator functionality
+      const roleSelect = document.getElementById('role')
+      const locationSelect = document.getElementById('location')
+      const staffInput = document.getElementById('staff')
+      const hoursInput = document.getElementById('hours')
+      const urgentRadios = document.querySelectorAll('input[name="urgent"]')
+      const jutlandWarning = document.getElementById('jutland-warning')
+
+      const hourlyPriceEl = document.getElementById('hourly-price')
+      const surchargeEl = document.getElementById('surcharge')
+      const urgentFeeEl = document.getElementById('urgent-fee')
+      const totalPriceEl = document.getElementById('total-price')
+
+      function calculatePrice() {
+        const selectedRole = roleSelect.options[roleSelect.selectedIndex]
+        const selectedLocation = locationSelect.options[locationSelect.selectedIndex]
+
+        const hourlyPrice = selectedRole.value ? parseInt(selectedRole.dataset.price) : 0
+        const surcharge = selectedLocation.value ? parseInt(selectedLocation.dataset.surcharge) : 0
+        const urgent = document.querySelector('input[name="urgent"]:checked').value === 'urgent' ? 50 : 0
+
+        const staff = parseInt(staffInput.value) || 0
+        const hours = parseInt(hoursInput.value) || 0
+
+        // Show/hide Jutland warning
+        if (selectedLocation.value === 'jylland') {
+          jutlandWarning.style.display = 'block'
+          hourlyPriceEl.textContent = '—'
+          surchargeEl.textContent = '—'
+          urgentFeeEl.textContent = '—'
+          totalPriceEl.textContent = '—'
+          return
+        } else {
+          jutlandWarning.style.display = 'none'
+        }
+
+        // Calculate
+        const pricePerHour = hourlyPrice + surcharge + urgent
+        const total = pricePerHour * staff * hours
+
+        // Update display
+        hourlyPriceEl.textContent = hourlyPrice ? `${hourlyPrice} kr.` : '— kr.'
+        surchargeEl.textContent = surcharge ? `+${surcharge} kr.` : '0 kr.'
+        urgentFeeEl.textContent = urgent ? `+${urgent} kr.` : '0 kr.'
+        totalPriceEl.textContent = total ? `${total.toLocaleString()} kr.` : '— kr.'
+      }
+
+      // Event listeners
+      roleSelect.addEventListener('change', calculatePrice)
+      locationSelect.addEventListener('change', calculatePrice)
+      staffInput.addEventListener('input', calculatePrice)
+      hoursInput.addEventListener('input', calculatePrice)
+      urgentRadios.forEach((radio) => radio.addEventListener('change', calculatePrice))
+
+      // FAQ toggle
+      const faqItems = document.querySelectorAll('.faq-item')
+      faqItems.forEach((item) => {
+        const question = item.querySelector('.faq-question')
+        question.addEventListener('click', () => {
+          item.classList.toggle('active')
+        })
+      })
+
+      // Mobile menu toggle
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle')
+      const navMenu = document.querySelector('.nav-menu')
+
+      mobileMenuToggle.addEventListener('click', () => {
+        if (navMenu.style.display === 'flex') {
+          navMenu.style.display = 'none'
+        } else {
+          navMenu.style.display = 'flex'
+          navMenu.style.flexDirection = 'column'
+          navMenu.style.position = 'absolute'
+          navMenu.style.top = '100%'
+          navMenu.style.left = '0'
+          navMenu.style.right = '0'
+          navMenu.style.backgroundColor = '#0A1628'
+          navMenu.style.padding = '20px'
+          navMenu.style.gap = '15px'
+        }
+      })
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault()
+          const target = document.querySelector(this.getAttribute('href'))
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            })
+          }
+          // Close mobile menu if open
+          if (window.innerWidth <= 768) {
+            navMenu.style.display = 'none'
+          }
+        })
+      })
+    </script>
+  </body>
 </html>
