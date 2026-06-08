@@ -263,6 +263,55 @@
         margin-top: var(--spacing-xl);
       }
 
+      /* Image Gallery Section */
+      .image-gallery {
+        padding: var(--spacing-2xl) 0;
+        background-color: white;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-xl);
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(10, 22, 40, 0.9), transparent);
+        color: white;
+        padding: var(--spacing-md);
+        font-weight: 600;
+      }
+
       .trust-item {
         display: flex;
         align-items: center;
@@ -489,7 +538,7 @@
       .steps-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: var(--spacing-lg);
+        gap: var(--spacing-xl);
         margin-top: var(--spacing-2xl);
       }
 
@@ -499,15 +548,15 @@
       }
 
       .step-number {
-        width: 48px;
-        height: 48px;
+        width: 56px;
+        height: 56px;
         background-color: var(--accent);
         color: white;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 700;
         margin: 0 auto var(--spacing-md);
       }
@@ -515,11 +564,14 @@
       .step-card h3 {
         margin-bottom: var(--spacing-sm);
         font-size: 18px;
+        font-weight: 600;
+        color: var(--fg);
       }
 
       .step-card p {
         color: var(--muted);
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.6;
       }
 
       /* Process Flow */
@@ -810,11 +862,10 @@
         <div class="nav-logo">Vikarstyrken</div>
         <div class="nav-menu">
           <a href="#forside" class="nav-link">Forside</a>
-          <a href="#brancher" class="nav-link">Brancher</a>
           <a href="#prisberegner" class="nav-link">Prisberegner</a>
           <a href="#saadan-fungerer-det" class="nav-link">Sådan fungerer det</a>
-          <a href="#referencer" class="nav-link">Referencer</a>
           <a href="#kontakt" class="nav-link">Kontakt</a>
+          <a href="#jobsogende" class="nav-link">Til jobsøgende</a>
           <a href="#prisberegner" class="nav-cta">Beregn pris</a>
           <a href="tel:+4512345678" class="nav-phone">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -829,7 +880,7 @@
     <section class="hero" id="forside">
       <div class="container hero-content">
         <h1 class="hero-headline">Book professionelle vikarer til events, service og køkken i Storkøbenhavn</h1>
-        <p class="hero-subheadline">Mangler I tjenere, værter, bartendere, receptionister eller køkkenhjælp? Vikarstyrken leverer erfarent personale hurtigt, trygt og til en gennemsigtig timepris.</p>
+        <p class="hero-subheadline">Mangler I tjenere, værter eller køkkenpersonale? Vikarstyrken leverer erfarent personale hurtigt, trygt og til en gennemsigtig timepris.</p>
         <div class="hero-ctas">
           <a href="#prisberegner" class="btn btn-primary">Beregn pris nu</a>
           <a href="tel:+4512345678" class="btn btn-secondary">Ring og book personale</a>
@@ -874,6 +925,30 @@
       </div>
     </section>
 
+    <!-- Image Gallery Section -->
+    <section class="image-gallery">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Professionelt personale til jeres event</h2>
+          <p class="section-subtitle">Vi leverer erfarne medarbejdere til alle typer af serviceopgaver</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="waiter-service.png" alt="Professionel tjener ved event" />
+            <div class="gallery-caption">Tjener & Ufaglært tjener</div>
+          </div>
+          <div class="gallery-item">
+            <img src="host-greeting.png" alt="Vært modtager gæster" />
+            <div class="gallery-caption">Vært</div>
+          </div>
+          <div class="gallery-item">
+            <img src="chef-kitchen.png" alt="Kok i professionelt køkken" />
+            <div class="gallery-caption">Kok & Køkkenmedhjælper</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Calculator Section -->
     <section class="calculator-section" id="prisberegner">
       <div class="container">
@@ -888,13 +963,12 @@
               <label class="form-label">Hvilken type personale mangler I?</label>
               <select class="form-select" id="role">
                 <option value="">Vælg rolle</option>
-                <option value="tjener" data-price="250">Tjener</option>
-                <option value="vaert" data-price="275">Vært / værtinde</option>
-                <option value="moedeforplejer" data-price="285">Mødeforplejer</option>
-                <option value="receptionist" data-price="295">Receptionist</option>
-                <option value="bartender" data-price="300">Bartender</option>
-                <option value="kok" data-price="350">Kok</option>
-                <option value="koekkenmedhjaelper" data-price="225">Køkkenmedhjælper</option>
+                <option value="tjener" data-price="249">Tjener</option>
+                <option value="ufaglaert-tjener" data-price="199">Ufaglært tjener</option>
+                <option value="vaert" data-price="199">Vært</option>
+                <option value="moedeforplejer" data-price="199">Mødeforplejer</option>
+                <option value="kok" data-price="319">Kok</option>
+                <option value="koekkenmedhjaelper" data-price="219">Køkkenmedhjælper</option>
               </select>
             </div>
             <div class="form-group">
@@ -945,7 +1019,7 @@
                 <span class="output-total-value" id="total-price">— kr.</span>
               </div>
               <div class="output-row">
-                <span class="output-label">(ekskl. moms)</span>
+                <span class="output-label" style="font-style: italic; font-size: 14px; color: #94a3b8">(ekskl. moms + admin.gebyr <span id="admin-fee">49 kr.</span>/time)</span>
                 <span></span>
               </div>
             </div>
@@ -964,7 +1038,7 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Vores brancher</h2>
-          <p class="section-subtitle">Vi leverer kvalificeret personale til alle typer af serviceopgaver</p>
+          <p class="section-subtitle">Tjener, Ufaglært tjener, Vært, Mødeforplejer, Kok og køkkenmedhjælper</p>
         </div>
         <div class="services-grid">
           <div class="service-card">
@@ -977,8 +1051,22 @@
                 <line x1="14" y1="1" x2="14" y2="4"></line>
               </svg>
             </div>
-            <h3>Tjener</h3>
+            <h3>Tjener - 249 kr/time</h3>
             <p>Professionelle tjenere til events, restauranter, hoteller, selskaber og konferencer.</p>
+            <a href="#prisberegner" class="service-cta">Beregn pris →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                <line x1="6" y1="1" x2="6" y2="4"></line>
+                <line x1="10" y1="1" x2="10" y2="4"></line>
+                <line x1="14" y1="1" x2="14" y2="4"></line>
+              </svg>
+            </div>
+            <h3>Ufaglært tjener - 199 kr/time</h3>
+            <p>Serviceminded personale til grundlæggende tjenerarbejde og gæstebetjening.</p>
             <a href="#prisberegner" class="service-cta">Beregn pris →</a>
           </div>
           <div class="service-card">
@@ -988,7 +1076,7 @@
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
             </div>
-            <h3>Vært / værtinde</h3>
+            <h3>Vært - 199 kr/time</h3>
             <p>Værter til modtagelse af gæster, registrering, garderobe, gæsteflow og event-hosting.</p>
             <a href="#prisberegner" class="service-cta">Beregn pris →</a>
           </div>
@@ -1000,32 +1088,8 @@
                 <line x1="9" y1="21" x2="9" y2="9"></line>
               </svg>
             </div>
-            <h3>Mødeforplejer</h3>
+            <h3>Mødeforplejer - 199 kr/time</h3>
             <p>Kaffe, morgenmad, frokostservice, mødelokaler og konferenceforplejning.</p>
-            <a href="#prisberegner" class="service-cta">Beregn pris →</a>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </div>
-            <h3>Receptionist</h3>
-            <p>Front desk, gæstehåndtering, telefonpasning og midlertidig receptionsdækning.</p>
-            <a href="#prisberegner" class="service-cta">Beregn pris →</a>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 6L7 17l-5-5"></path>
-                <path d="M22 12h-4"></path>
-                <path d="M6 12H2"></path>
-              </svg>
-            </div>
-            <h3>Bartender</h3>
-            <p>Barservice, cocktails, øl/vinservice og eventbarer til enhver anledning.</p>
             <a href="#prisberegner" class="service-cta">Beregn pris →</a>
           </div>
           <div class="service-card">
@@ -1036,7 +1100,19 @@
                 <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3"></path>
               </svg>
             </div>
-            <h3>Kok eller køkkenmedhjælper</h3>
+            <h3>Kok - 319 kr/time</h3>
+            <p>Professionelle kokke til køkkener, catering, events og travle perioder.</p>
+            <a href="#prisberegner" class="service-cta">Beregn pris →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+                <path d="M7 2v20"></path>
+                <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3"></path>
+              </svg>
+            </div>
+            <h3>Køkkenmedhjælper - 219 kr/time</h3>
             <p>Ekstra hænder til køkkener, forberedelse, service, opvask og travle perioder.</p>
             <a href="#prisberegner" class="service-cta">Beregn pris →</a>
           </div>
@@ -1051,8 +1127,27 @@
           <h2 class="section-title">Så nemt booker I personale</h2>
           <p class="section-subtitle">Fire enkle trin fra behov til løsning</p>
         </div>
-        <div class="process-flow">
-          <img src="VikarStyrken proces start til slut_page-0001.jpg" alt="VikarStyrken proces fra start til slut" style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 0 auto" />
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>I mangler mandskab</h3>
+            <p>Klik på "Beregn pris" eller kontakt os direkte, når I har brug for ekstra hænder.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Vi taler om behovet</h3>
+            <p>I ringer eller skriver til os, og vi afklarer rolle, tidspunkt, sted og særlige præferencer.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Vi bekræfter opgaven</h3>
+            <p>I modtager en bekræftelse, og vi sender den rette vikar ud til virksomheden.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Vi følger op og afregner</h3>
+            <p>Efter opgaven hører vi om oplevelsen, sender faktura og sørger for aflønning af medarbejderen.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1125,38 +1220,60 @@
       </div>
     </section>
 
-    <!-- References Section -->
-    <section class="references-section" id="referencer">
+    <!-- Job Seeker Section -->
+    <section class="references-section" id="jobsogende">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Virksomheder og events vi hjælper</h2>
-          <p class="section-subtitle">Vikarstyrken samarbejder med restauranter, hoteller, venues, kongrescentre og events, hvor stabilt personale og god service er afgørende.</p>
+          <h2 class="section-title">Til jobsøgende</h2>
+          <p class="section-subtitle">Søger du fleksible vikarvagter inden for service og køkken? Udfyld formularen nedenfor, så kontakter vi dig.</p>
         </div>
-        <div class="references-grid">
-          <div class="reference-card">
-            <div class="reference-name">Roskilde Kongrescenter</div>
-            <p class="reference-text">"Vikarstyrken har hjulpet os med fleksibel bemanding til travle arrangementer. De reagerer hurtigt, forstår vores behov og sender personale, der kan indgå professionelt i driften fra start."</p>
-          </div>
-          <div class="reference-card">
-            <div class="reference-name">Royal Arena</div>
-            <p class="reference-text">"Når bemandingen skal fungere til større arrangementer, er pålidelighed afgørende. Vikarstyrken har vist sig som en stabil samarbejdspartner med serviceorienterede vikarer."</p>
-          </div>
-          <div class="reference-card">
-            <div class="reference-name">Distortion</div>
-            <p class="reference-text">"Til events med højt tempo har vi brug for folk, der møder klar, smilende og løsningsorienteret ind. Vikarstyrken har leveret personale, der kan håndtere pressede situationer."</p>
-          </div>
-          <div class="reference-card">
-            <div class="reference-name">Hotel Kong Arthur</div>
-            <p class="reference-text">"Vi sætter pris på samarbejdspartnere, der forstår hotel- og servicebranchen. Vikarstyrken er nemme at kommunikere med og leverer personale med god situationsfornemmelse."</p>
-          </div>
-          <div class="reference-card">
-            <div class="reference-name">Royal Stage</div>
-            <p class="reference-text">"Vikarstyrken har været en fleksibel løsning, når vi har haft behov for ekstra hænder. Processen er enkel, og opfølgningen efter opgaven giver tryghed."</p>
-          </div>
-          <div class="reference-card">
-            <div class="reference-name">Jespers Torvekøkken</div>
-            <p class="reference-text">"I køkken- og cateringopgaver er stabilitet og tempo vigtigt. Vikarstyrken hjælper os med ekstra kapacitet, når behovet opstår."</p>
-          </div>
+        <div class="contact-form" style="max-width: 600px; margin: 0 auto">
+          <h3>Ansøg som vikar</h3>
+          <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" id="job-form">
+            <input type="hidden" name="access_key" value="3ddd3257-dabc-4bd8-8b24-c05e41b80023" />
+            <input type="hidden" name="subject" value="Ny jobansøgning - Tjenervikar.dk" />
+            <input type="hidden" name="from_name" value="Tjenervikar Jobansøgning" />
+            <input type="hidden" name="redirect" value="https://tjenervikar.dk/tak" />
+            <div class="form-group">
+              <label class="form-label">Fulde navn *</label>
+              <input type="text" name="name" class="form-input" placeholder="Dit fulde navn" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input type="email" name="email" class="form-input" placeholder="din@email.dk" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Telefon *</label>
+              <input type="tel" name="phone" class="form-input" placeholder="Dit telefonnummer" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Hvilke roller er du interesseret i? *</label>
+              <select name="role" class="form-select" required>
+                <option value="">Vælg rolle</option>
+                <option value="Tjener">Tjener</option>
+                <option value="Ufaglært tjener">Ufaglært tjener</option>
+                <option value="Vært">Vært</option>
+                <option value="Mødeforplejer">Mødeforplejer</option>
+                <option value="Kok">Kok</option>
+                <option value="Køkkenmedhjælper">Køkkenmedhjælper</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Erfaring (år)</label>
+              <input type="number" name="experience" class="form-input" placeholder="Antal års erfaring" min="0" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Fortæl os om dig selv og din erfaring</label>
+              <textarea name="message" class="form-input" rows="4" placeholder="Beskriv din erfaring og hvad du kan tilbyde..."></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Upload CV (PDF, max 10MB) *</label>
+              <input type="file" name="attachment" class="form-input" accept=".pdf,.doc,.docx" required />
+              <p style="font-size: 14px; color: var(--muted); margin-top: 8px">Accepterede formater: PDF, DOC, DOCX</p>
+            </div>
+            <div class="h-captcha" data-captcha="true"></div>
+            <button type="submit" class="btn btn-primary" style="width: 100%" id="job-submit">Send ansøgning</button>
+          </form>
         </div>
       </div>
     </section>
@@ -1171,7 +1288,7 @@
         <div class="faq-list">
           <div class="faq-item active">
             <div class="faq-question">Hvilke brancher leverer I vikarer til? <span>▼</span></div>
-            <div class="faq-answer">Vi leverer primært vikarer til hospitality- og servicebranchen, herunder restauranter, hoteller, event venues, kongrescentre og catering. Vores specialer er tjenere, værter, bartendere, receptionister, mødeforplejere og køkkenpersonale.</div>
+            <div class="faq-answer">Vi leverer primært vikarer til hospitality- og servicebranchen, herunder restauranter, hoteller, event venues, kongrescentre og catering. Vores specialer er tjenere (faglærte og ufaglærte), værter, mødeforplejere, kokke og køkkenmedhjælpere.</div>
           </div>
           <div class="faq-item">
             <div class="faq-question">Hvor hurtigt kan I sende personale? <span>▼</span></div>
@@ -1222,7 +1339,7 @@
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                <strong>Email:</strong> info@vikarstyrken.dk
+                <strong>Email:</strong> info@tjenervikar.dk
               </div>
               <div class="contact-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1235,28 +1352,33 @@
           </div>
           <div class="contact-form">
             <h3>Send os en besked</h3>
-            <form>
+            <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+              <input type="hidden" name="access_key" value="3ddd3257-dabc-4bd8-8b24-c05e41b80023" />
+              <input type="hidden" name="subject" value="Ny forespørgsel fra Tjenervikar.dk" />
+              <input type="hidden" name="from_name" value="Tjenervikar Kontaktformular" />
+              <input type="hidden" name="redirect" value="https://tjenervikar.dk/tak" />
               <div class="form-group">
                 <label class="form-label">Virksomhed</label>
-                <input type="text" class="form-input" placeholder="Jeres virksomhedsnavn" />
+                <input type="text" name="company" class="form-input" placeholder="Jeres virksomhedsnavn" required />
               </div>
               <div class="form-group">
-                <label class="form-label">Kontaktperson</label>
-                <input type="text" class="form-input" placeholder="Dit navn" />
+                <label class="form-label">Kontaktperson *</label>
+                <input type="text" name="name" class="form-input" placeholder="Dit navn" required />
               </div>
               <div class="form-group">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-input" placeholder="din@email.dk" />
+                <label class="form-label">Email *</label>
+                <input type="email" name="email" class="form-input" placeholder="din@email.dk" required />
               </div>
               <div class="form-group">
-                <label class="form-label">Telefon</label>
-                <input type="tel" class="form-input" placeholder="Dit telefonnummer" />
+                <label class="form-label">Telefon *</label>
+                <input type="tel" name="phone" class="form-input" placeholder="Dit telefonnummer" required />
               </div>
               <div class="form-group">
-                <label class="form-label">Besked</label>
-                <textarea class="form-input" rows="4" placeholder="Beskriv jeres behov..."></textarea>
+                <label class="form-label">Besked *</label>
+                <textarea name="message" class="form-input" rows="4" placeholder="Beskriv jeres behov..." required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary" style="width: 100%">Send besked</button>
+              <div class="h-captcha" data-captcha="true"></div>
+              <button type="submit" class="btn btn-primary" style="width: 100%" id="contact-submit">Send besked</button>
             </form>
           </div>
         </div>
@@ -1275,7 +1397,7 @@
             <h4>Menu</h4>
             <ul>
               <li><a href="#forside">Forside</a></li>
-              <li><a href="#brancher">Brancher</a></li>
+              <li><a href="#jobsogende">Til jobsøgende</a></li>
               <li><a href="#prisberegner">Prisberegner</a></li>
               <li><a href="#saadan-fungerer-det">Sådan fungerer det</a></li>
             </ul>
@@ -1283,7 +1405,6 @@
           <div class="footer-links">
             <h4>Information</h4>
             <ul>
-              <li><a href="#referencer">Referencer</a></li>
               <li><a href="#kontakt">Kontakt</a></li>
               <li><a href="#">Om os</a></li>
               <li><a href="#">Privatlivspolitik</a></li>
@@ -1293,7 +1414,7 @@
             <h4>Kontakt</h4>
             <ul>
               <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
-              <li><a href="mailto:info@vikarstyrken.dk">info@vikarstyrken.dk</a></li>
+              <li><a href="mailto:info@tjenervikar.dk">info@tjenervikar.dk</a></li>
               <li>Storkøbenhavn og Sjælland</li>
             </ul>
           </div>
@@ -1342,13 +1463,15 @@
         }
 
         // Calculate
-        const pricePerHour = hourlyPrice + surcharge + urgent
+        const adminFee = 49
+        const pricePerHour = hourlyPrice + surcharge + urgent + adminFee
         const total = pricePerHour * staff * hours
 
         // Update display
         hourlyPriceEl.textContent = hourlyPrice ? `${hourlyPrice} kr.` : '— kr.'
         surchargeEl.textContent = surcharge ? `+${surcharge} kr.` : '0 kr.'
         urgentFeeEl.textContent = urgent ? `+${urgent} kr.` : '0 kr.'
+        document.getElementById('admin-fee').textContent = `${adminFee} kr.`
         totalPriceEl.textContent = total ? `${total.toLocaleString()} kr.` : '— kr.'
       }
 
