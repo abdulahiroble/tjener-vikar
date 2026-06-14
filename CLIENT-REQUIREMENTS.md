@@ -1,4 +1,4 @@
-# Client Requirements - Tjener Vikar Website Updates
+# Client Requirements - TjenerVikar Website Updates
 
 ## Priority Changes
 
@@ -79,7 +79,7 @@
 
 #### Keep and simplify:
 
-**"Hvorfor vælge Tjener Vikar"** - Keep only 3 points:
+**"Hvorfor vælge TjenerVikar"** - Keep only 3 points:
 
 1. Hurtigere respons
 2. Erfaren personale
@@ -131,7 +131,7 @@ Client will set up:
 
 ### 10. Brand Name Consistency ✅ COMPLETED
 
-- **Change all instances** of "Vikarstyrken" to "Tjener Vikar"
+- **Change all instances** of "Vikarstyrken" to "TjenerVikar"
 - Ensure consistent branding throughout the site
 
 ### 11. Date Range Picker ✅ COMPLETED
