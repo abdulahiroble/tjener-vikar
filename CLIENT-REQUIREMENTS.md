@@ -168,3 +168,66 @@ Client will set up:
 - Clear call-to-action: Calculate price and book
 - All text in Danish
 - Copenhagen/Zealand/Fyn focus (not Jylland)
+
+---
+
+## New Requirements (Meeting June 17, 2026)
+
+### 13. Hero Section — Simplify Further
+
+- **Headline**: Remove "billigt" → **"Book vikar nemt"**
+- **Subheadline**: Remove focus on Fyn/Jylland. Main focus is **København and Sjælland**
+  - Fyn and Jylland can be mentioned but NOT as main focus
+  - Example: "Mangler I tjenere, værter eller køkkenpersonale til events, service og køkken i København og på Sjælland?"
+- **Background video**: DO NOT implement. Client decided against AI-generated video — looks too unnatural. Keep current simple design.
+
+### 14. Service Categories — Expand to 8 Total
+
+**New structure** (8 categories, 4 per row):
+
+**Row 1:**
+
+1. **Tjener**
+2. **Overtjener/Afvikler** (keep as combined — "det er det samme")
+3. **Kok**
+4. **Køkkenassistent** (own image/column — split from opvasker)
+
+**Row 2:** 5. **Opvasker** (own image/column — split from køkkenassistent) 6. **Bartender** 7. **Mødeforplejning** (rename from "Møde/oplægsholder" — one word) 8. **Vært/Værtinde** (new category — "hvert og hvert en")
+
+- Each card clickable → scroll to pricing section
+- Need new images for: Køkkenassistent, Opvasker, Vært/Værtinde
+- Keep existing images for: Tjener, Overtjener/Afvikler, Kok, Bartender, Mødeforplejning
+
+### 15. Pricing Calculator — Remove Rush Fee Section
+
+- **Remove entire** "Er opgaven akut?" section
+- Client finds it confusing: "Hvad så hvis den er et minut i over seks timer?"
+- Keep it simple: "Jeg skal bruge det her, den koster det her"
+- Rush fees can be discussed directly with employees when booking
+
+### 16. Calculator Locations — Add Jylland Back
+
+- **Add "Jylland"** back to location dropdown
+- Main focus is still Storkøbenhavn and Sjælland
+- Jylland available but NOT promoted
+- Remove any text saying "Vi assisterer ikke i Jylland"
+
+### 17. FAQ Section — Update Jylland Answer
+
+- Update question: "Kan vi få en pris med det samme?" or Jylland-related FAQ
+- New answer: "Vores **hovedfokus** er Storkøbenhavn og Sjælland. Vi assisterer også i Jylland, men det er ikke vores primære område."
+- Remove old answer saying they don't assist in Jylland
+
+### 18. Contact Info — Pending Client Input
+
+- **Phone number**: Client will provide
+- **Email addresses** to create:
+  - `info@tjenervikar.dk` (already in form)
+  - `job@tjenervikar.dk` (for job applications)
+- Replace placeholder phone `+45 12 34 56 78` when provided
+
+### 19. Launch Timeline
+
+- **Target**: Ready to go live by **Wednesday**
+- Client will provide phone number and confirm email setup
+- Then: Submit to Google for indexing
