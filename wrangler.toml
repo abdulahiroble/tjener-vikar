@@ -1,0 +1,11 @@
+name = "tjener-vikar"
+pages_build_output_dir = "."
+compatibility_date = "2026-06-21"
+
+[[r2_buckets]]
+binding = "CV_BUCKET"
+bucket_name = "tjenervikar-cv-uploads"
+
+[vars]
+JOB_APPLICATION_TO = "job@tjenervikar.dk"
+RESEND_FROM = "Tjenervikar <info@tjenervikar.dk>"

@@ -1140,12 +1140,7 @@
         </div>
         <div class="contact-form" style="max-width: 600px; margin: 0 auto">
           <h3>Ansøg som vikar</h3>
-          <form action="https://splitforms.com/api/submit" method="POST" enctype="multipart/form-data" id="job-form">
-            <input type="hidden" name="access_key" value="e37b118f081b4e85b369b46304f04551" />
-            <input type="hidden" name="subject" value="Ny jobansøgning - Tjenervikar.dk" />
-            <input type="hidden" name="from_name" value="Tjenervikar Jobansøgning" />
-            <input type="hidden" name="redirect" value="https://tjenervikar.dk/tak" />
-            <input type="hidden" name="email_to" value="job@tjenervikar.dk" />
+          <form action="/api/job-application" method="POST" enctype="multipart/form-data" id="job-form">
             <input type="checkbox" name="botcheck" style="display: none" tabindex="-1" />
             <div class="form-group">
               <label class="form-label">Fulde navn *</label>

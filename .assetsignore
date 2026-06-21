@@ -1,0 +1,12 @@
+.env
+.env.*
+.git
+.git/**
+.wrangler
+.wrangler/**
+*.md
+CLIENT-*.md
+EMAIL-*.md
+IMPLEMENTATION-*.md
+QUICK-START.md
+wrangler.toml
