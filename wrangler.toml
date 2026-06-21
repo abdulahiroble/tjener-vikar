@@ -8,4 +8,5 @@ bucket_name = "tjenervikar-cv-uploads"
 
 [vars]
 JOB_APPLICATION_TO = "job@tjenervikar.dk"
+INQUIRY_TO = "info@tjenervikar.dk"
 RESEND_FROM = "Tjenervikar <info@tjenervikar.dk>"
