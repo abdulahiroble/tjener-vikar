@@ -158,9 +158,7 @@ export async function onRequestPost({ request, env }) {
       <p><strong>Besked:</strong></p>
       <p>${escapeHtml(message || 'Ingen besked angivet.').replace(/\n/g, '<br>')}</p>
       <hr>
-      <p><strong>CV fil:</strong> ${escapeHtml(cv.name)}</p>
-      <p><strong>R2 nøgle:</strong> ${escapeHtml(key)}</p>
-      <p>CV'et er gemt i Cloudflare R2 bucketten. Log ind i Cloudflare for at hente filen.</p>
+      <p><strong>CV:</strong> CV'et er vedhæftet denne email.</p>
     `;
 
     await sendEmail(env, {
