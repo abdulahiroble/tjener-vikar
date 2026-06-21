@@ -1140,11 +1140,13 @@
         </div>
         <div class="contact-form" style="max-width: 600px; margin: 0 auto">
           <h3>Ansøg som vikar</h3>
-          <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" id="job-form">
-            <input type="hidden" name="access_key" value="3ddd3257-dabc-4bd8-8b24-c05e41b80023" />
+          <form action="https://splitforms.com/api/submit" method="POST" enctype="multipart/form-data" id="job-form">
+            <input type="hidden" name="access_key" value="e37b118f081b4e85b369b46304f04551" />
             <input type="hidden" name="subject" value="Ny jobansøgning - Tjenervikar.dk" />
             <input type="hidden" name="from_name" value="Tjenervikar Jobansøgning" />
             <input type="hidden" name="redirect" value="https://tjenervikar.dk/tak" />
+            <input type="hidden" name="email_to" value="job@tjenervikar.dk" />
+            <input type="checkbox" name="botcheck" style="display: none" tabindex="-1" />
             <div class="form-group">
               <label class="form-label">Fulde navn *</label>
               <input type="text" name="name" class="form-input" placeholder="Dit fulde navn" required />
@@ -1182,7 +1184,6 @@
               <input type="file" name="attachment" class="form-input" accept=".pdf,.doc,.docx" required />
               <p style="font-size: 14px; color: var(--muted); margin-top: 8px">Accepterede formater: PDF, DOC, DOCX</p>
             </div>
-            <div class="h-captcha" data-captcha="true"></div>
             <button type="submit" class="btn btn-primary" style="width: 100%" id="job-submit">Send ansøgning</button>
           </form>
         </div>
