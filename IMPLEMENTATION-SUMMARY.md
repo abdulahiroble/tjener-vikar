@@ -66,12 +66,12 @@ Reorganized from 3 categories to **6 categories** with clickable links to pricin
 
 - **Normal booking** (40+ timer): 0 kr
 - **Inden for 12 timer**: +19 kr/t
-- **Inden for 6 timer**: +49 kr/t
+- **Inden for 6 timer**: +54 kr/t
 - **Removed**: Old "Inden for 24 timer (+50 kr)" option
 
 #### Administration Fee:
 
-- **Updated from 49 kr to 59 kr** per hour
+- **Updated from 54 kr to 59 kr** per hour
 - Covers færgepenge, ATP, and full process management
 
 ### ✅ 5. "Hvorfor vælge TjenerVikar" Section

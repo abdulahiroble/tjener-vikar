@@ -10,7 +10,7 @@ Her er en status på de ændringer, jeg har foretaget på hjemmesiden:
 - Hero-sektion opdateret til "Book vikar nemt og billigt"
 - Service-kategorier omstruktureret til 6 roller med klikbare links til prisberegner
 - Prisberegner opdateret med de nye timepriser fra din liste
-- Rush fee-tilbud optimeret: 6 timer (+49 kr/t) og 12 timer (+19 kr/t)
+- Rush fee-tilbud optimeret: 6 timer (+54 kr/t) og 12 timer (+19 kr/t)
 - Administrationsgebyr opdateret til 59 kr/t
 - "Hvorfor vælge TjenerVikar" forenklet til 3 punkter
 - Dato-tilføjelse tilføjet til beregneren (start/slut dato)

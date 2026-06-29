@@ -34,7 +34,7 @@ TjenerVikar er et dansk vikarbureau til hospitality-branchen, der leverer person
 ### Konkurrenternes svagheder (vores muligheder)
 
 1. **Tyndt indhold**: De fleste konkurrenter har få sider med basal information — ingen dybde
-2. **Manglende prisgennemsigtighed**: Kun tjenerteamet.dk viser priser (49 kr./t.). TjenerVikars prisberegner er en **unik differentiering**
+2. **Manglende prisgennemsigtighed**: Kun tjenerteamet.dk viser priser (54 kr./t.). TjenerVikars prisberegner er en **unik differentiering**
 3. **Ingen programmatisk SEO**: Ingen konkurrenter har lokation+service-sider
 4. **Ingen strukturerede data**: Konkurrenterne mangler schema.org-markup
 5. **Ingen content marketing**: Ingen blogs, guides eller lønressourcer
@@ -47,7 +47,7 @@ Top 10-resultater:
 
 1. baservice.dk — "Tjener vikar København"
 2. vikarstyrken.dk — "Tjenervikar i København og Sjælland"
-3. **tjenerteamet.dk** — "Tjener Vikar 49 kr./t. | Book Online"
+3. **tjenerteamet.dk** — "Tjener Vikar 54 kr./t. | Book Online"
 4. kokogvikar.dk — "Bliv vikar"
 5. vikarvagten.dk — "Vikarbureau København & Nordsjælland"
 6. jooble.org — jobopslag (ikke en konkurrent)

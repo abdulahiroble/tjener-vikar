@@ -42,13 +42,13 @@
 
 #### Rush Fee Structure
 
-- **Within 6 hours**: +49 kr gebyr
+- **Within 6 hours**: +54 kr gebyr
 - **Within 12 hours**: +19 kr gebyr (or 29 kr - client to confirm)
 - **40+ hours notice**: No rush fee
 
 #### Administration Fee
 
-- **Standard fee**: 59 kr (changed from 49 kr)
+- **Standard fee**: 59 kr (changed from 54 kr)
 - This covers: færgepenge, ATP, and full process management
 - Fee should be clearly visible but not overly prominent
 
