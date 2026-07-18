@@ -1606,11 +1606,8 @@
           </div>
           <div class="contact-form">
             <h3>Send os en besked</h3>
-            <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
-              <input type="hidden" name="access_key" value="3ddd3257-dabc-4bd8-8b24-c05e41b80023" />
-              <input type="hidden" name="subject" value="Ny forespørgsel fra Tjenervikar.dk" />
-              <input type="hidden" name="from_name" value="Tjenervikar Kontaktformular" />
-              <input type="hidden" name="redirect" value="https://tjenervikar.dk/tak" />
+            <form action="/api/contact" method="POST" id="contact-form">
+              <input type="checkbox" name="botcheck" style="display: none" tabindex="-1" />
               <div class="form-group">
                 <label class="form-label">Virksomhed</label>
                 <input type="text" name="company" class="form-input" placeholder="Jeres virksomhedsnavn" required />
@@ -1631,7 +1628,6 @@
                 <label class="form-label">Besked *</label>
                 <textarea name="message" class="form-input" rows="4" placeholder="Beskriv jeres behov..." required></textarea>
               </div>
-              <div class="h-captcha" data-captcha="true"></div>
               <button type="submit" class="btn btn-primary" style="width: 100%" id="contact-submit">Send besked</button>
             </form>
           </div>
