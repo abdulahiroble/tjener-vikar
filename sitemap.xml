@@ -49,6 +49,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://tjenervikar.dk/hvad-koster-en-vikar</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Phase 2: Service Pages -->
   <url>
     <loc>https://tjenervikar.dk/tjener-vikar</loc>

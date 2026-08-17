@@ -2,7 +2,9 @@
 
 ## Resumé
 
-TjenerVikar er et dansk vikarbureau til hospitality-branchen, der leverer personale til København og Sjælland. Sitet har i øjeblikket **0 organisk trafik, 0 rangerende søgeord, DA=1 og kun 7 backlinks**. Denne plan viser, hvordan TjenerVikar kan slå konkurrenterne gennem teknisk SEO, dybere indhold, programmatisk lokale landingssider og målrettet linkbuilding.
+TjenerVikar er et dansk vikarbureau til hospitality-branchen, der leverer personale til København og Sjælland.
+
+**Status pr. 17. august 2026** (opdateret efter GSC/Ubersuggest-analyse): Sitet har **~17 kliks og ~900 impressions/28 dage**, rangerer #7 på "tjener vikar", har **DA=2 og 20 backlinks fra 18 domæner**. Teknisk fundament er nu fuldt implementeret (statisk nav/footer, clean URLs, schema, sitemap indsendt). Den primære flaskehals er indeksering (kun forside + 1 underside indekseret pr. 17/8) og autoritet — derfor er GBP, citations og GA4 de vigtigste næste skridt. Denne plan viser, hvordan TjenerVikar kan slå konkurrenterne gennem teknisk SEO, dybere indhold, programmatisk lokale landingssider og målrettet linkbuilding.
 
 ---
 
@@ -72,16 +74,18 @@ Top 10-resultater:
 
 | Problem                          | Status                              | Konsekvens                                  |
 | -------------------------------- | ----------------------------------- | ------------------------------------------- |
-| **robots.txt**                   | Mangler helt                        | Søgemaskiner får ingen crawl-instruktioner  |
-| **sitemap.xml**                  | Mangler helt                        | Sider opdages mindre effektivt              |
-| **Strukturerede data (JSON-LD)** | Mangler                             | Ingen rich snippets i Google                |
-| **Open Graph-tags**              | Mangler                             | Dårlig visning ved deling på sociale medier |
-| **Twitter Card-tags**            | Mangler                             | Dårlig visning ved deling på Twitter/X      |
-| **Canonical URL**                | Mangler                             | Risiko for duplicate content                |
-| **hreflang**                     | Mangler                             | Ingen tydelig sprog-/regionsmålretning      |
-| **Google Business Profile**      | Sandsynligvis mangler               | Ingen lokal SEO-tilstedeværelse             |
-| **Google Search Console**        | Ikke forbundet                      | Ingen indekseringsdata                      |
-| **Backlinks**                    | Kun 7 (mod konkurrenternes 150-778) | Meget lav autoritet                         |
+| **robots.txt**                   | ✅ Oprettet (med sitemap-reference)  | Fastsat crawl-instruktioner                 |
+| **sitemap.xml**                  | ✅ Oprettet (23 clean URLs, indsendt GSC) | Effektiv opdagelse af alle sider      |
+| **Strukturerede data (JSON-LD)** | ✅ Implementeret (Service, FAQPage, Article) | Rich snippet-muligheder            |
+| **Open Graph-tags**              | ✅ Implementeret                     | God visning ved deling                      |
+| **Twitter Card-tags**            | ✅ Implementeret                     | God visning på X                            |
+| **Canonical URL**                | ✅ Implementeret (clean URLs)        | Ingen duplicate content                     |
+| **hreflang**                     | ✅ Implementeret (da-dk)             | Tydelig sprog-/regionsmålretning            |
+| **Statisk nav/footer (crawlbar)** | ✅ Implementeret (var JS-injiceret)  | Interne links synlige uden JS-rendering     |
+| **Google Business Profile**      | ❌ Mangler (høj prioritet)           | Ingen lokal SEO / local pack-tilstedeværelse |
+| **Google Analytics 4**           | ❌ Mangler                           | Ingen trafik- og konverteringsdata          |
+| **Google Search Console**        | ✅ Forbundet (sc-domain, sitemap indsendt 2026-08-17) | Fuld indekseringsdata     |
+| **Backlinks**                    | 20 backlinks / 18 domæner (DA 2)    | Lav autoritet — aktiv linkbuilding påkrævet |
 
 ### Det der allerede fungerer (godt fundament)
 
@@ -336,39 +340,41 @@ Mål: 50+ backlinks fra 30+ domæner på 3 måneder
 - [x] Tilføj Open Graph + Twitter Card meta-tags
 - [x] Tilføj canonical URLs
 - [x] Optimer forsidens meta-tags (title, description, H1)
-- [ ] Indsend til Google Search Console
+- [x] Indsend til Google Search Console (sc-domain:tjenervikar.dk, sitemap behandlet 2026-08-17, 0 fejl)
 - [ ] Opret Google Business Profile
 
 ### Uge 2: Servicesider
 
-- [ ] Opret /tjener-vikar.html
-- [ ] Opret /kok-vikar.html
-- [ ] Opret /bartender-vikar.html
-- [ ] Opret /koekkenassistent.html
-- [ ] Opret /opvasker-vikar.html
-- [ ] Opret /vaert-vikar.html
-- [ ] Opret /overtjener-vikar.html
-- [ ] Opret /moedeforplejer.html
-- [ ] Tilføj intern linking fra forsiden til servicesider
-- [ ] Tilføj servicesider til navigationen
+- [x] Opret /tjener-vikar
+- [x] Opret /lej-en-kok
+- [x] Opret /lej-en-bartender
+- [x] Opret /koekkenmedhjaelper
+- [x] Opret /lej-tjener
+- [x] Opret /leje-af-tjenere
+- [x] Opret /serveringspersonale
+- [x] Opret /catering-vikar
+- [x] Tilføj intern linking fra forsiden til servicesider
+- [x] Tilføj servicesider til navigationen (statisk HTML-nav på alle sider)
 
 ### Uge 3: Lokationssider
 
-- [ ] Opret /vikarbureau-københavn.html
-- [ ] Opret /vikarbureau-amager.html
-- [ ] Opret /vikarbureau-frederiksberg.html
-- [ ] Opret /vikarbureau-nordsjælland.html
-- [ ] Opret /vikarbureau-sjælland.html
-- [ ] Tilføj lokationssider til sitemap
+- [x] Opret /vikarbureau-koebenhavn
+- [x] Opret /vikarbureau-amager
+- [x] Opret /vikarbureau-frederiksberg
+- [x] Opret /vikarbureau-oesterbro
+- [x] Opret /vikarbureau-nordsjaelland
+- [x] Opret /vikarbureau-sjaelland
+- [x] Tilføj lokationssider til sitemap
+- [x] Udvid lokationssider med unikt lokalt indhold + FAQ (2026-08-17)
 
 ### Uge 4-5: Content marketing
 
 - [ ] Opret /blog/ sektion
-- [ ] Skriv "Løn for kokke i Danmark 2026"-guide
-- [ ] Skriv "Hvad er et vikarbureau?"-artikel
-- [ ] Skriv "Sådan finder du kokkejob i København"-guide
-- [ ] Skriv "Tilkaldevikar i København"-guide
-- [ ] Skriv "Prisguide for vikarer i hospitality"-side
+- [x] Skriv "Løn for kokke"-guide (/kokke-loen)
+- [x] Skriv "Hvad er et vikarbureau?"-artikel (/hvad-er-et-vikarbureau)
+- [x] Skriv "Tilkaldevikar i København"-guide (/tilkaldevikar-koebenhavn)
+- [x] Skriv "Prisguide for vikarer i hospitality"-side (/hvad-koster-en-vikar, 2026-08-17)
+- [x] Skriv "Hvor meget tjener en vikar?"-guide (/hvor-meget-tjener-en-vikar)
 
 ### Uge 6: Linkbuilding og lokal SEO
 

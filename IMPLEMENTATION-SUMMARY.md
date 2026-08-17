@@ -1,5 +1,43 @@
 # Implementation Summary - TjenerVikar Website Updates
 
+## SEO Sprint — 17. august 2026 (P0/P1 + quick wins)
+
+### Data fra GSC (28 dage pr. 17/8)
+
+- 17 kliks, 888 impressions, CTR 1,91%, avg. position 17,0
+- Bedste placering: "tjener vikar" #7 (14 kliks), "tjener vikarbureau" #11,5
+- Efterspørgsel uden side: "catering vikar"/"vikar catering" (42 impr./md), "book (en) tjener" (83 impr./md)
+- Ubersuggest: DA 2, 20 backlinks/18 domæner; lav konkurrence (SD 12–18) på alle målsøgeord
+- GA4: **mangler** — ingen tracking på sitet
+
+### P0 — Indeksering (commit a4209d6)
+
+- ✅ Statisk nav/footer på alle 21 undersider (var JS-injiceret via components.js → nul interne links uden rendering; årsag til "Discovered – not indexed")
+- ✅ Clean URLs (uden .html) overalt: hrefs, canonicals, hreflang, og:url, sitemap
+- ✅ components.js reduceret til rene UI-behaviors (mobilmenu, FAQ-accordion)
+- ✅ Forside: "Book en tjener"-sektion + kontekstuelle links
+
+### P1 — Efterspørgselsdækning (commit a4209d6)
+
+- ✅ Ny side /catering-vikar (targeting "catering vikar")
+- ✅ CTR-fix på /hvor-meget-tjener-en-vikar (titel: "Hvor meget tjener en vikar i timen? (184–265 kr.) — Løn 2026")
+- ✅ Alle 6 lokationssider udvidet fra ~5 KB til 11,5–14,5 KB med unikt lokale sektioner + FAQ
+- ✅ Sitemap: 22 clean URLs, indsendt og behandlet i GSC (0 fejl) 17/8 kl. 09:34
+
+### Quick wins — 17. august 2026
+
+- ✅ Favicon-sæt genereret og tilføjet (favicon.png 512px multi-size, favicon.ico, apple-touch-icon.png 180px) — alle sider 404'ede tidligere på /favicon.png
+- ✅ Ny side /hvad-koster-en-vikar (Article + FAQPage schema, targeting "hvad koster en vikar (i timen)" + PAA-spørgsmålet "Hvilket vikarbureau betaler bedst?")
+- ✅ Intern linking: footer "Guides"-kolonnu opdateret på alle 23 sider + kontekstuelle links fra /hvor-meget-tjener-en-vikar og /vikarbureau-koebenhavn
+- ✅ Sitemap opdateret til 23 URLs
+
+### Åben handlingspunkter (ejer: kunden)
+
+1. **Google Business Profile** — local pack vises for "vikarbureau københavn"; højeste ROI-tilbageværende item
+2. **GA4-property** — opret og send Measurement ID (G-XXXXXXX), så gtag kan indsættes på alle sider
+3. **Citations** — Krak, De Gule Sider, Eniro, LinkedIn, Facebook (konsistent NAP)
+4. Efter ~1 uge: tjek Page Indexing i GSC; manuelt "Request indexing" på de 8 money pages hvis de stadig sidder fast
+
 ## Completed Changes (June 15, 2026)
 
 ### ✅ 1. Brand Name Update
