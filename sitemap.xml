@@ -2,131 +2,137 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tjenervikar.dk/</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <!-- Phase 1: Quick Win Keyword Pages -->
   <url>
-    <loc>https://tjenervikar.dk/lej-tjener.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/lej-tjener</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/leje-af-tjenere.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/leje-af-tjenere</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/serveringspersonale.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/serveringspersonale</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/kokke-loen.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/catering-vikar</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tjenervikar.dk/kokke-loen</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/koekkenmedhjaelper-loen.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/koekkenmedhjaelper-loen</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/hvor-meget-tjener-en-vikar.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/hvor-meget-tjener-en-vikar</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Phase 2: Service Pages -->
   <url>
-    <loc>https://tjenervikar.dk/tjener-vikar.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/tjener-vikar</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/lej-en-kok.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/lej-en-kok</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/lej-en-bartender.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/lej-en-bartender</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/koekkenmedhjaelper.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/koekkenmedhjaelper</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Phase 3: Content & Guide Pages -->
   <url>
-    <loc>https://tjenervikar.dk/sommelier-loen.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/sommelier-loen</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/bryllup-huskeliste.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/bryllup-huskeliste</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/hvad-er-et-vikarbureau.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/hvad-er-et-vikarbureau</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/tilkaldevikar-koebenhavn.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/tilkaldevikar-koebenhavn</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Phase 4: Location Pages -->
   <url>
-    <loc>https://tjenervikar.dk/vikarbureau-koebenhavn.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/vikarbureau-koebenhavn</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/vikarbureau-amager.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/vikarbureau-amager</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/vikarbureau-frederiksberg.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/vikarbureau-frederiksberg</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/vikarbureau-oesterbro.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/vikarbureau-oesterbro</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/vikarbureau-nordsjaelland.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/vikarbureau-nordsjaelland</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tjenervikar.dk/vikarbureau-sjaelland.html</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://tjenervikar.dk/vikarbureau-sjaelland</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
