@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  var GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // <-- indsæt dit GA4-måle-id her
+  var GA4_MEASUREMENT_ID = 'G-5WCFJEQ00J';
   var CONSENT_KEY = 'tv-cookie-consent';
 
   window.dataLayer = window.dataLayer || [];
