@@ -1,0 +1,27 @@
+# 301-redirects: legacy .html URLs -> clean URLs (canonical)
+/index.html /
+/tak.html /tak
+/bryllup-huskeliste.html /bryllup-huskeliste
+/bliv-vikar.html /bliv-vikar
+/catering-vikar.html /catering-vikar
+/hvad-er-et-vikarbureau.html /hvad-er-et-vikarbureau
+/hvad-koster-en-vikar.html /hvad-koster-en-vikar
+/hvor-meget-tjener-en-vikar.html /hvor-meget-tjener-en-vikar
+/koekkenmedhjaelper-loen.html /koekkenmedhjaelper-loen
+/koekkenmedhjaelper.html /koekkenmedhjaelper
+/kokke-loen.html /kokke-loen
+/lej-en-bartender.html /lej-en-bartender
+/lej-en-kok.html /lej-en-kok
+/lej-tjener.html /lej-tjener
+/leje-af-tjenere.html /leje-af-tjenere
+/loen-som-tjener.html /loen-som-tjener
+/serveringspersonale.html /serveringspersonale
+/sommelier-loen.html /sommelier-loen
+/tilkaldevikar-koebenhavn.html /tilkaldevikar-koebenhavn
+/tjener-vikar.html /tjener-vikar
+/vikarbureau-amager.html /vikarbureau-amager
+/vikarbureau-frederiksberg.html /vikarbureau-frederiksberg
+/vikarbureau-koebenhavn.html /vikarbureau-koebenhavn
+/vikarbureau-nordsjaelland.html /vikarbureau-nordsjaelland
+/vikarbureau-oesterbro.html /vikarbureau-oesterbro
+/vikarbureau-sjaelland.html /vikarbureau-sjaelland
