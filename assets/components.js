@@ -5,20 +5,23 @@
   var toggle = document.querySelector('.mobile-menu-toggle');
   var menu = document.querySelector('.nav-menu');
   if (toggle && menu) {
+    var setMenu = function (open) {
+      menu.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
     toggle.addEventListener('click', function () {
-      if (menu.style.display === 'flex') {
-        menu.style.display = 'none';
-      } else {
-        menu.style.display = 'flex';
-        menu.style.flexDirection = 'column';
-        menu.style.position = 'absolute';
-        menu.style.top = '100%';
-        menu.style.left = '0';
-        menu.style.right = '0';
-        menu.style.backgroundColor = '#0A1628';
-        menu.style.padding = '20px';
-        menu.style.gap = '15px';
-      }
+      setMenu(!menu.classList.contains('open'));
+    });
+
+    // Close the menu after tapping a nav link
+    menu.addEventListener('click', function (event) {
+      if (event.target.closest('a')) setMenu(false);
+    });
+
+    // Never leak the open mobile menu into the desktop layout on resize
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768) setMenu(false);
     });
   }
 

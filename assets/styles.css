@@ -100,13 +100,31 @@ a:hover { color: var(--accent-hover); }
   transform: translateY(-1px);
 }
 
+/* Secondary: accent outline so it stays visible on light backgrounds */
 .btn-secondary {
   background-color: transparent;
-  color: white;
-  border: 2px solid white;
+  color: var(--accent);
+  border: 2px solid var(--accent);
 }
 
 .btn-secondary:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* White outline variant for dark sections */
+.hero .btn-secondary,
+.page-hero .btn-secondary,
+.cta-section .btn-secondary,
+.calculator-output .btn-secondary {
+  color: white;
+  border-color: white;
+}
+
+.hero .btn-secondary:hover,
+.page-hero .btn-secondary:hover,
+.cta-section .btn-secondary:hover,
+.calculator-output .btn-secondary:hover {
   background-color: white;
   color: var(--bg-navy);
 }
@@ -136,6 +154,8 @@ a:hover { color: var(--accent-hover); }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
 }
 
 .nav-logo {
@@ -146,8 +166,10 @@ a:hover { color: var(--accent-hover); }
 
 .nav-menu {
   display: flex;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .nav-link {
@@ -187,6 +209,17 @@ a:hover { color: var(--accent-hover); }
   color: white;
   font-size: 24px;
   cursor: pointer;
+}
+
+/* Tablet: tighten the menu and drop the phone link (redundant with nav CTA) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .nav-menu {
+    gap: var(--spacing-sm);
+  }
+
+  .nav-phone {
+    display: none;
+  }
 }
 
 /* Page Hero */
@@ -524,6 +557,21 @@ a:hover { color: var(--accent-hover); }
 @media (max-width: 768px) {
   .nav-menu {
     display: none;
+  }
+
+  /* Dropdown panel opened via .mobile-menu-toggle (JS toggles the class) */
+  .nav-menu.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-navy);
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+    box-shadow: var(--shadow-lg);
   }
 
   .mobile-menu-toggle {

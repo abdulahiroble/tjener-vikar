@@ -176,7 +176,7 @@ export async function onRequestPost({ request, env }) {
       ],
     });
 
-    return Response.redirect(new URL('/tak', request.url), 303);
+    return Response.redirect(new URL('/tak-vikar', request.url), 303);
   } catch (error) {
     console.error('Job application error:', error);
     return jsonResponse({ success: false, message: 'Ansøgningen kunne ikke sendes lige nu. Prøv igen senere.' }, 500);

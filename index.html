@@ -384,13 +384,31 @@
         transform: translateY(-1px);
       }
 
+      /* Secondary: accent outline so it stays visible on light backgrounds */
       .btn-secondary {
         background-color: transparent;
-        color: white;
-        border: 2px solid white;
+        color: var(--accent);
+        border: 2px solid var(--accent);
       }
 
       .btn-secondary:hover {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      /* White outline variant for dark sections */
+      .hero .btn-secondary,
+      .page-hero .btn-secondary,
+      .cta-section .btn-secondary,
+      .calculator-output .btn-secondary {
+        color: white;
+        border-color: white;
+      }
+
+      .hero .btn-secondary:hover,
+      .page-hero .btn-secondary:hover,
+      .cta-section .btn-secondary:hover,
+      .calculator-output .btn-secondary:hover {
         background-color: white;
         color: var(--bg-navy);
       }
@@ -420,6 +438,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
       }
 
       .nav-logo {
@@ -430,8 +450,10 @@
 
       .nav-menu {
         display: flex;
-        gap: var(--spacing-lg);
+        gap: var(--spacing-md);
         align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
       }
 
       .nav-link {
@@ -1057,6 +1079,17 @@
       }
 
       /* Responsive */
+      /* Tablet: tighten the menu and drop the phone link (redundant with nav CTA) */
+      @media (max-width: 1024px) and (min-width: 769px) {
+        .nav-menu {
+          gap: var(--spacing-sm);
+        }
+
+        .nav-phone {
+          display: none;
+        }
+      }
+
       @media (max-width: 1024px) {
         .calculator-grid {
           grid-template-columns: 1fr;
@@ -1083,6 +1116,22 @@
         .nav-menu {
           display: none;
         }
+
+        /* Dropdown panel opened via .mobile-menu-toggle (JS toggles the class) */
+        .nav-menu.open {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: var(--bg-navy);
+          padding: var(--spacing-md);
+          gap: var(--spacing-sm);
+          box-shadow: var(--shadow-lg);
+        }
+
         .gallery-grid {
           grid-template-columns: repeat(2, 1fr);
         }
@@ -1200,14 +1249,13 @@
           <a href="#prisberegner" class="nav-link">Prisberegner</a>
           <a href="#saadan-fungerer-det" class="nav-link">Sådan fungerer det</a>
           <a href="#kontakt" class="nav-link">Kontakt</a>
-          <a href="#jobsogende" class="nav-link">Til jobsøgende</a>
           <a href="#prisberegner" class="nav-cta">Beregn pris</a>
           <a href="tel:+4527857773" class="nav-phone">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             Ring nu
           </a>
         </div>
-        <button class="mobile-menu-toggle" aria-label="Menu">☰</button>
+        <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
       </div>
     </nav>
 
@@ -1304,8 +1352,9 @@
           <a href="/leje-af-tjenere" class="btn btn-secondary">Leje af tjenere</a>
           <a href="/serveringspersonale" class="btn btn-secondary">Serveringspersonale</a>
           <a href="/catering-vikar" class="btn btn-secondary">Cateringvikar</a>
+          <a href="/personale-udlejning" class="btn btn-secondary">Personale udlejning</a>
         </div>
-        <p style="text-align: center; margin-top: 16px">Overvejer I at ansætte selv? Se <a href="/loen-som-tjener">Løn som tjener — se 2026-tallerne</a>.</p>
+        <p style="text-align: center; margin-top: 16px">Usikker på om I skal leje eller ansætte? Se <a href="/hvad-koster-en-vikar">hvad en vikar koster per time</a>.</p>
       </div>
     </section>
 
@@ -1503,61 +1552,6 @@
       </div>
     </section>
 
-    <!-- Job Seeker Section -->
-    <section class="references-section" id="jobsogende">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Til jobsøgende</h2>
-          <p class="section-subtitle">Søger du fleksible vikarvagter inden for service og køkken? Udfyld formularen nedenfor, så kontakter vi dig.</p>
-        </div>
-        <div class="contact-form" style="max-width: 600px; margin: 0 auto">
-          <h3>Ansøg som vikar</h3>
-          <form action="/api/job-application" method="POST" enctype="multipart/form-data" id="job-form">
-            <input type="checkbox" name="botcheck" style="display: none" tabindex="-1" />
-            <div class="form-group">
-              <label class="form-label">Fulde navn *</label>
-              <input type="text" name="name" class="form-input" placeholder="Dit fulde navn" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email *</label>
-              <input type="email" name="email" class="form-input" placeholder="din@email.dk" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Telefon *</label>
-              <input type="tel" name="phone" class="form-input" placeholder="Dit telefonnummer" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Hvilke roller er du interesseret i? *</label>
-              <select name="role" class="form-select" required>
-                <option value="">Vælg rolle</option>
-                <option value="Tjener">Tjener</option>
-                <option value="Ufaglært tjener">Ufaglært tjener</option>
-                <option value="Vært">Vært</option>
-                <option value="Mødeforplejer">Mødeforplejer</option>
-                <option value="Kok">Kok</option>
-                <option value="Køkkenmedhjælper">Køkkenmedhjælper</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Erfaring (år)</label>
-              <input type="number" name="experience" class="form-input" placeholder="Antal års erfaring" min="0" />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Fortæl os om dig selv og din erfaring</label>
-              <textarea name="message" class="form-input" rows="4" placeholder="Beskriv din erfaring og hvad du kan tilbyde..."></textarea>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Upload CV (PDF, max 10MB) *</label>
-              <input type="file" name="attachment" class="form-input" accept=".pdf,.doc,.docx" required />
-              <p style="font-size: 14px; color: var(--muted); margin-top: 8px">Accepterede formater: PDF, DOC, DOCX</p>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%" id="job-submit">Send ansøgning</button>
-          </form>
-          <p style="text-align: center; margin-top: 16px"><a href="/bliv-vikar">Læs mere om at blive vikar — løn, roller og krav</a></p>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ Section -->
     <section class="faq-section">
       <div class="container">
@@ -1661,6 +1655,61 @@
       </div>
     </section>
 
+    <!-- Job Seeker Section -->
+    <section class="references-section" id="jobsogende">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Til jobsøgende</h2>
+          <p class="section-subtitle">Søger du fleksible vikarvagter inden for service og køkken? Udfyld formularen nedenfor, så kontakter vi dig.</p>
+        </div>
+        <div class="contact-form" style="max-width: 600px; margin: 0 auto">
+          <h3>Ansøg som vikar</h3>
+          <form action="/api/job-application" method="POST" enctype="multipart/form-data" id="job-form">
+            <input type="checkbox" name="botcheck" style="display: none" tabindex="-1" />
+            <div class="form-group">
+              <label class="form-label">Fulde navn *</label>
+              <input type="text" name="name" class="form-input" placeholder="Dit fulde navn" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input type="email" name="email" class="form-input" placeholder="din@email.dk" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Telefon *</label>
+              <input type="tel" name="phone" class="form-input" placeholder="Dit telefonnummer" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Hvilke roller er du interesseret i? *</label>
+              <select name="role" class="form-select" required>
+                <option value="">Vælg rolle</option>
+                <option value="Tjener">Tjener</option>
+                <option value="Ufaglært tjener">Ufaglært tjener</option>
+                <option value="Vært">Vært</option>
+                <option value="Mødeforplejer">Mødeforplejer</option>
+                <option value="Kok">Kok</option>
+                <option value="Køkkenmedhjælper">Køkkenmedhjælper</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Erfaring (år)</label>
+              <input type="number" name="experience" class="form-input" placeholder="Antal års erfaring" min="0" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Fortæl os om dig selv og din erfaring</label>
+              <textarea name="message" class="form-input" rows="4" placeholder="Beskriv din erfaring og hvad du kan tilbyde..."></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Upload CV (PDF, max 10MB) *</label>
+              <input type="file" name="attachment" class="form-input" accept=".pdf,.doc,.docx" required />
+              <p style="font-size: 14px; color: var(--muted); margin-top: 8px">Accepterede formater: PDF, DOC, DOCX</p>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%" id="job-submit">Send ansøgning</button>
+          </form>
+          <p style="text-align: center; margin-top: 16px"><a href="/bliv-vikar">Læs mere om at blive vikar — løn, roller og krav</a></p>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
@@ -1680,6 +1729,7 @@
               <li><a href="/koekkenmedhjaelper">Køkkenmedhjælper</a></li>
               <li><a href="/serveringspersonale">Serveringspersonale</a></li>
               <li><a href="/catering-vikar">Cateringvikar</a></li>
+              <li><a href="/personale-udlejning">Personale udlejning</a></li>
             </ul>
           </div>
           <div class="footer-links">
@@ -1827,20 +1877,18 @@
       const mobileMenuToggle = document.querySelector('.mobile-menu-toggle')
       const navMenu = document.querySelector('.nav-menu')
 
+      const setMenu = (open) => {
+        navMenu.classList.toggle('open', open)
+        mobileMenuToggle.setAttribute('aria-expanded', open ? 'true' : 'false')
+      }
+
       mobileMenuToggle.addEventListener('click', () => {
-        if (navMenu.style.display === 'flex') {
-          navMenu.style.display = 'none'
-        } else {
-          navMenu.style.display = 'flex'
-          navMenu.style.flexDirection = 'column'
-          navMenu.style.position = 'absolute'
-          navMenu.style.top = '100%'
-          navMenu.style.left = '0'
-          navMenu.style.right = '0'
-          navMenu.style.backgroundColor = '#0A1628'
-          navMenu.style.padding = '20px'
-          navMenu.style.gap = '15px'
-        }
+        setMenu(!navMenu.classList.contains('open'))
+      })
+
+      // Never leak the open mobile menu into the desktop layout on resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) setMenu(false)
       })
 
       // Smooth scroll for anchor links
@@ -1856,7 +1904,7 @@
           }
           // Close mobile menu if open
           if (window.innerWidth <= 768) {
-            navMenu.style.display = 'none'
+            setMenu(false)
           }
         })
       })
