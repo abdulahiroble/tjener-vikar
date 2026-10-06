@@ -1,3 +1,5 @@
+import { protectForm } from '../_lib/form-protection.js';
+
 function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
@@ -57,9 +59,8 @@ export async function onRequestPost({ request, env }) {
 
     const formData = await request.formData();
 
-    if (formData.get('botcheck')) {
-      return Response.redirect(new URL('/tak', request.url), 303);
-    }
+    const rejection = await protectForm(request, env, formData, 'contact');
+    if (rejection) return rejection;
 
     const name = validateText(formData.get('name'), 'Navn', 120);
     const email = validateText(formData.get('email'), 'Email', 160);

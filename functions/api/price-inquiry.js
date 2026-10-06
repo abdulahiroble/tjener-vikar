@@ -1,3 +1,5 @@
+import { protectForm } from '../_lib/form-protection.js';
+
 function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
@@ -57,9 +59,8 @@ export async function onRequestPost({ request, env }) {
 
     const formData = await request.formData();
 
-    if (formData.get('botcheck')) {
-      return jsonResponse({ success: true, message: 'Tak for din forespørgsel.' });
-    }
+    const rejection = await protectForm(request, env, formData, 'price-inquiry');
+    if (rejection) return rejection;
 
     const company = validateText(formData.get('company'), 'Virksomhed', 120);
     const name = validateText(formData.get('name'), 'Navn', 120);

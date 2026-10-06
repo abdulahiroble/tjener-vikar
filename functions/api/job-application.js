@@ -1,3 +1,5 @@
+import { protectForm } from '../_lib/form-protection.js';
+
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ALLOWED_EXTENSIONS = new Set(['pdf', 'doc', 'docx']);
 const ALLOWED_MIME_TYPES = new Set([
@@ -95,9 +97,8 @@ export async function onRequestPost({ request, env }) {
 
     const formData = await request.formData();
 
-    if (formData.get('botcheck')) {
-      return jsonResponse({ success: true, message: 'Tak for din ansøgning.' });
-    }
+    const rejection = await protectForm(request, env, formData, 'job-application');
+    if (rejection) return rejection;
 
     const name = validateText(formData.get('name'), 'Navn', 120);
     const email = validateText(formData.get('email'), 'Email', 160);

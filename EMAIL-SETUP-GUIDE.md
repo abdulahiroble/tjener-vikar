@@ -2,6 +2,10 @@
 
 This guide will help you set up professional email addresses and working contact forms for your website.
 
+**Current forms:** The website now uses Cloudflare Pages Functions, Resend, and
+R2, not the legacy Web3Forms instructions below. For required Turnstile spam
+protection setup, see [FORM-SPAM-PROTECTION.md](FORM-SPAM-PROTECTION.md).
+
 ## 📧 Part 1: Cloudflare Email Routing Setup (FREE)
 
 ### What You'll Get:

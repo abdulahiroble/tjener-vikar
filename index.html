@@ -1366,8 +1366,11 @@
           <p class="section-subtitle">De fleste vikarbureauer kræver, at I ringer eller venter på et tilbud. Hos TjenerVikar kan I hurtigt beregne en forventet timepris.</p>
         </div>
         <div class="calculator-grid">
-          <form class="calculator-form" action="/api/price-inquiry" method="POST" id="price-form">
+          <form class="calculator-form" action="/api/price-inquiry" method="POST" id="price-form" data-protected-form="price-inquiry">
             <input type="checkbox" name="botcheck" style="display: none" tabindex="-1" />
+            <div style="position: absolute; left: -10000px" aria-hidden="true">
+              <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+            </div>
             <h3 class="calculator-title">Beregn jeres pris</h3>
             <div class="form-group">
               <label class="form-label">Hvilken type personale mangler I?</label>
@@ -1441,6 +1444,9 @@
             <input type="hidden" name="days_count" id="hidden-days-count" value="1" />
             <input type="hidden" name="hourly_price" id="hidden-hourly-price" value="" />
             <input type="hidden" name="total_price" id="hidden-total-price" value="" />
+            <div data-turnstile></div>
+            <p data-form-security-status role="status" aria-live="polite">Sikkerhedstjek indlæses...</p>
+            <noscript>JavaScript skal være aktiveret for at sende formularen. Ring gerne til os i stedet.</noscript>
           </form>
           <div class="calculator-output">
             <h3 class="output-title">Estimeret pris</h3>
@@ -1626,8 +1632,11 @@
           </div>
           <div class="contact-form">
             <h3>Send os en besked</h3>
-            <form action="/api/contact" method="POST" id="contact-form">
+            <form action="/api/contact" method="POST" id="contact-form" data-protected-form="contact">
               <input type="checkbox" name="botcheck" style="display: none" tabindex="-1" />
+              <div style="position: absolute; left: -10000px" aria-hidden="true">
+                <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+              </div>
               <div class="form-group">
                 <label class="form-label">Virksomhed</label>
                 <input type="text" name="company" class="form-input" placeholder="Jeres virksomhedsnavn" required />
@@ -1648,6 +1657,9 @@
                 <label class="form-label">Besked *</label>
                 <textarea name="message" class="form-input" rows="4" placeholder="Beskriv jeres behov..." required></textarea>
               </div>
+              <div data-turnstile></div>
+              <p data-form-security-status role="status" aria-live="polite">Sikkerhedstjek indlæses...</p>
+              <noscript>JavaScript skal være aktiveret for at sende formularen. Ring gerne til os i stedet.</noscript>
               <button type="submit" class="btn btn-primary" style="width: 100%" id="contact-submit">Send besked</button>
             </form>
           </div>
@@ -1664,8 +1676,11 @@
         </div>
         <div class="contact-form" style="max-width: 600px; margin: 0 auto">
           <h3>Ansøg som vikar</h3>
-          <form action="/api/job-application" method="POST" enctype="multipart/form-data" id="job-form">
+          <form action="/api/job-application" method="POST" enctype="multipart/form-data" id="job-form" data-protected-form="job-application">
             <input type="checkbox" name="botcheck" style="display: none" tabindex="-1" />
+            <div style="position: absolute; left: -10000px" aria-hidden="true">
+              <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+            </div>
             <div class="form-group">
               <label class="form-label">Fulde navn *</label>
               <input type="text" name="name" class="form-input" placeholder="Dit fulde navn" required />
@@ -1703,6 +1718,9 @@
               <input type="file" name="attachment" class="form-input" accept=".pdf,.doc,.docx" required />
               <p style="font-size: 14px; color: var(--muted); margin-top: 8px">Accepterede formater: PDF, DOC, DOCX</p>
             </div>
+            <div data-turnstile></div>
+            <p data-form-security-status role="status" aria-live="polite">Sikkerhedstjek indlæses...</p>
+            <noscript>JavaScript skal være aktiveret for at sende formularen. Ring gerne til os i stedet.</noscript>
             <button type="submit" class="btn btn-primary" style="width: 100%" id="job-submit">Send ansøgning</button>
           </form>
           <p style="text-align: center; margin-top: 16px"><a href="/bliv-vikar">Læs mere om at blive vikar — løn, roller og krav</a></p>
@@ -1909,6 +1927,7 @@
         })
       })
     </script>
+    <script src="/assets/form-protection.js" defer></script>
     <script src="/assets/analytics.js" defer></script>
   </body>
 </html>
